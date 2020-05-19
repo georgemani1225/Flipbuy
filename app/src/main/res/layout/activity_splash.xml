@@ -10,7 +10,7 @@
     android:id="@+id/imgsplashLogo"
     android:layout_width="120dp"
     android:layout_height="120dp"
-    android:src="@drawable/flipbuy_logo_cropped"
+    android:src="@drawable/shopping"
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true" />
 

@@ -13,7 +13,7 @@
         android:layout_height="150dp"
         android:layout_centerHorizontal="true"
         android:layout_margin="16dp"
-        android:src="@drawable/flipbuy_logo_cropped" />
+        android:src="@drawable/shopping" />
 
     <EditText
         android:id="@+id/etLoginMailid"
