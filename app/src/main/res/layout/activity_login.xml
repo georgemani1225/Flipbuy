@@ -4,89 +4,96 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity"
-    android:background="#ff8c00">
+    android:background="#ff8c00"
+    tools:context=".LoginActivity">
+
     <ImageView
         android:id="@+id/imgLogoLogin"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:src="@drawable/flipbuy_logo"
         android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"/>
+        android:layout_margin="16dp"
+        android:src="@drawable/flipbuy_logo_cropped" />
+
     <EditText
         android:id="@+id/etLoginMailid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_mail_id"
-        android:background="#ffffff"
-        android:paddingTop="20dp"
         android:layout_below="@+id/imgLogoLogin"
         android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="20dp"
-        android:textSize="18sp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:inputType="textEmailAddress"/>
+        android:layout_marginRight="20dp"
+        android:background="@drawable/edit_text_style"
+        android:drawableStart="@drawable/ic_email"
+        android:drawablePadding="10dp"
+        android:hint="@string/enter_mail_id"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:paddingTop="20dp"
+        android:textSize="18sp" />
+
     <EditText
         android:id="@+id/etLoginPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/etLoginMailid"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/edit_text_style"
+        android:drawableStart="@drawable/ic_password"
+        android:drawablePadding="10dp"
         android:hint="@string/enter_password"
         android:inputType="textPassword"
-        android:layout_below="@+id/etLoginMailid"
-        android:layout_marginBottom="15dp"
-        android:padding="15dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="#ffffff"
-        android:textSize="18sp"/>
+        android:padding="10dp"
+        android:textSize="18sp" />
+
     <Button
         android:id="@+id/btnLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:textColor="#ffffff"
-        android:background="#ff6200"
         android:layout_below="@+id/etLoginPassword"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:padding="20dp"
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/login_button"
+        android:elevation="10dp"
+        android:padding="10dp"
+        android:text="@string/login"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/txtForgetPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnLogin"
-        android:text="@string/forget_password"
-        android:textColor="#ffffff"
-        android:layout_margin="5dp"
+        android:layout_centerInParent="true"
+        android:layout_margin="10dp"
         android:padding="8dp"
-        android:layout_centerInParent="true"/>
+        android:textSize="16dp"
+        android:clickable="true"
+        android:textStyle="bold"
+        android:text="@string/forget_password"
+        android:textColor="#ffffff" />
+
     <Button
         android:id="@+id/btnRegisterNew"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textAllCaps="false"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/login_button"
         android:text="@string/register_new"
         android:textColor="#ffffff"
-        android:background="#ff4d00"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="18dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"/>
-
-
-
-
-
-
-
-
-
-
-
-
+        android:textStyle="bold"
+        android:textSize="16sp"/>
 
 
 </RelativeLayout>
