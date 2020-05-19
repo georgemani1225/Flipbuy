@@ -68,7 +68,7 @@
         android:id="@+id/btnRegisterNew"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register New"
+        android:text="@string/register_new"
         android:textColor="#ffffff"
         android:background="#ff4d00"
         android:layout_alignParentBottom="true"
