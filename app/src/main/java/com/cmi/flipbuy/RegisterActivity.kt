@@ -1,5 +1,6 @@
 package com.cmi.flipbuy
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -15,20 +16,21 @@ import kotlinx.android.synthetic.main.activity_register.*
 class RegisterActivity : AppCompatActivity() {
     val mAuth = FirebaseAuth.getInstance()
     lateinit var mDatabase: DatabaseReference
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
         val btnRegister = findViewById<View>(R.id.btnRegister) as Button
-        mDatabase = FirebaseDatabase.getInstance().getReference("Names")
+        mDatabase = FirebaseDatabase.getInstance().getReference("Details")
 
         toolbar.setTitle("Register Yourself")
         setSupportActionBar(toolbar)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        btnRegister.setOnClickListener(View.OnClickListener { view ->
+        btnRegister.setOnClickListener {
             register()
-        })
+        }
     }
 
     private fun register() {
@@ -46,7 +48,7 @@ class RegisterActivity : AppCompatActivity() {
         var rpassword = etRegisterPassword.text.toString()
         var cpassword = etConfirmPassword.text.toString()
 
-        if (!name.isEmpty() && !email.isEmpty() && !mobileno.isEmpty() && !daddress.isEmpty() && !rpassword.isEmpty() && !cpassword.isEmpty()) {
+        if (name.isNotEmpty() && email.isNotEmpty() && mobileno.isNotEmpty() && daddress.isNotEmpty() && rpassword.isNotEmpty() && cpassword.isNotEmpty()) {
             mAuth.createUserWithEmailAndPassword(email, rpassword)
                 .addOnCompleteListener(this, OnCompleteListener { task ->
                     if (task.isSuccessful) {
@@ -62,6 +64,7 @@ class RegisterActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Please enter the credentials", Toast.LENGTH_LONG).show()
         }
+
 
 
     }

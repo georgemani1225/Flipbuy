@@ -25,9 +25,9 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
         }
-        btnLogin.setOnClickListener(View.OnClickListener { view ->
+        btnLogin.setOnClickListener {
             login()
-        })
+        }
 
     }
 
@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
         var email = etLoginMailid.text.toString()
         var password = etLoginPassword.text.toString()
 
-        if (!email.isEmpty() && !password.isEmpty()) {
+        if (email.isNotEmpty() && password.isNotEmpty()) {
             mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, OnCompleteListener { task ->
                     if (task.isSuccessful) {

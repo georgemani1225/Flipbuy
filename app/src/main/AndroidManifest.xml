@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.cmi.flipbuy">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,8 +15,8 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/ToolBarThemeRegister"
-            android:parentActivityName=".LoginActivity"/>
+            android:parentActivityName=".LoginActivity"
+            android:theme="@style/ToolBarThemeRegister" />
         <activity
             android:name=".SplashActivity"
             android:noHistory="true">
