@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1057834780959",
+    "firebase_url": "https://flip-buy-ea1a8.firebaseio.com",
+    "project_id": "flip-buy-ea1a8",
+    "storage_bucket": "flip-buy-ea1a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057834780959:android:23c836d63272e834dec82a",
+        "android_client_info": {
+          "package_name": "com.cmi.flipbuy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057834780959-pcbqso0ehu831kkmpip6bg2tkuad2b2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhiy0YF2r6ae3Hx65XhEKSH_n-gpe83rk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057834780959-pcbqso0ehu831kkmpip6bg2tkuad2b2r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
