@@ -14,20 +14,21 @@ import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity() {
-    val mAuth = FirebaseAuth.getInstance()
+    lateinit var mAuth: FirebaseAuth
     lateinit var mDatabase: DatabaseReference
+    var firebaseUserID: String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
         val btnRegister = findViewById<View>(R.id.btnRegister) as Button
-        mDatabase = FirebaseDatabase.getInstance().getReference("Details")
 
         toolbar.setTitle("Register Yourself")
         setSupportActionBar(toolbar)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        mAuth = FirebaseAuth.getInstance()
         btnRegister.setOnClickListener {
             register()
         }
@@ -50,17 +51,28 @@ class RegisterActivity : AppCompatActivity() {
 
         if (name.isNotEmpty() && email.isNotEmpty() && mobileno.isNotEmpty() && daddress.isNotEmpty() && rpassword.isNotEmpty() && cpassword.isNotEmpty()) {
             mAuth.createUserWithEmailAndPassword(email, rpassword)
-                .addOnCompleteListener(this, OnCompleteListener { task ->
+                .addOnCompleteListener{ task ->
                     if (task.isSuccessful) {
-                        val user = mAuth.currentUser
-                        val uid = user!!.uid
-                        mDatabase.child(uid).child("Name").setValue(name)
-                        mDatabase.child(uid).child("Mobile Number").setValue(mobileno)
-                        mDatabase.child(uid).child("Delivery Address").setValue(daddress)
+                       firebaseUserID = mAuth.currentUser!!.uid
+                       mDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseUserID)
+                        val userHashMap = HashMap<String, Any>()
+                        userHashMap["uid"] = firebaseUserID
+                        userHashMap["name"] = name
+                        userHashMap["email"] = email
+                        userHashMap["Delivery Address"] = daddress
+                        mDatabase.updateChildren(userHashMap).addOnCompleteListener {task ->
+                            if (task.isSuccessful)
+                            {
+                                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                                startActivity(intent)
+                                finish()
+                            }
+                        }
+
                     } else {
                         Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
                     }
-                })
+                }
         } else {
             Toast.makeText(this, "Please enter the credentials", Toast.LENGTH_LONG).show()
         }
