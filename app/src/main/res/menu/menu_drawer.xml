@@ -22,5 +22,8 @@
         android:id="@+id/menu_my_account"
         android:title="My Account"
         android:icon="@drawable/ic_acoount"/>
+    <item
+        android:id="@+id/menu_signout"
+        android:title="Sign Out"/>
 
 </menu>

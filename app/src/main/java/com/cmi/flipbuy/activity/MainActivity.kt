@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
         ToolBar = findViewById(R.id.ToolBar)
         navigationView = findViewById(R.id.navigationView)
         setUpToolBar()
+
         val actionBarDrawerToggle = ActionBarDrawerToggle(
             this@MainActivity, drawerLayout,
             R.string.open_drawer,
@@ -66,7 +67,6 @@ class MainActivity : AppCompatActivity() {
                     drawerLayout.closeDrawers()
 
                 }
-
             }
             return@setNavigationItemSelectedListener true
 
@@ -78,7 +78,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
-
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
 
         val id=item.itemId
@@ -87,5 +86,4 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
 }
