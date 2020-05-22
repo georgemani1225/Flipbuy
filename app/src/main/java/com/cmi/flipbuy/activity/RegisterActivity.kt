@@ -57,8 +57,9 @@ class RegisterActivity : AppCompatActivity() {
                        mDatabase = FirebaseDatabase.getInstance().reference.child("Users").child(firebaseUserID)
                         val userHashMap = HashMap<String, Any>()
                         userHashMap["uid"] = firebaseUserID
-                        userHashMap["name"] = name
-                        userHashMap["email"] = email
+                        userHashMap["Name"] = name
+                        userHashMap["Email"] = email
+                        userHashMap["Mobile Number"] = mobileno
                         userHashMap["Delivery Address"] = daddress
                         mDatabase.updateChildren(userHashMap).addOnCompleteListener {task ->
                             if (task.isSuccessful)
