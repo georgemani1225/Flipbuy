@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_Offers"
+        android:title="Offers"/>
+    <item
+        android:id="@+id/menu_products"
+        android:title="Other Products"/>
+    <item
+        android:id="@+id/menu_my_cart"
+        android:title="My Cart"
+        android:icon="@drawable/ic_cart"/>
+    <item
+        android:id="@+id/menu_my_wishList"
+        android:title="My WishList"
+        android:icon="@drawable/ic_wishlist"/>
+    <item
+        android:id="@+id/menu_my_orders"
+        android:title="My Orders"
+        android:icon="@drawable/ic_orders"/>
+    <item
+        android:id="@+id/menu_my_account"
+        android:title="My Account"
+        android:icon="@drawable/ic_acoount"/>
+
+</menu>
