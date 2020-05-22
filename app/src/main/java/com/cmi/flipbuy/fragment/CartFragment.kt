@@ -10,7 +10,7 @@ import com.cmi.flipbuy.R
 /**
  * A simple [Fragment] subclass.
  */
-class MyCart : Fragment() {
+class CartFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

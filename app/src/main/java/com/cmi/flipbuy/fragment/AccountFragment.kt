@@ -10,7 +10,7 @@ import com.cmi.flipbuy.R
 /**
  * A simple [Fragment] subclass.
  */
-class MyAccount : Fragment() {
+class AccountFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

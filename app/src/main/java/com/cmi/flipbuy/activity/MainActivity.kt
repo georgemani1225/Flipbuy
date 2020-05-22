@@ -11,10 +11,10 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.cmi.flipbuy.R
 import com.google.android.material.navigation.NavigationView
-import fragment.MyAccount
-import fragment.MyCart
-import fragment.MyOrders
-import fragment.MyWishList
+import fragment.AccountFragment
+import fragment.CartFragment
+import fragment.OrdersFragment
+import fragment.WishListFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -42,25 +42,25 @@ class MainActivity : AppCompatActivity() {
 
             when (it.itemId) {
                 R.id.menu_my_cart -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.frameLayout, MyCart())
+                    supportFragmentManager.beginTransaction().replace(R.id.frameLayout, CartFragment())
                         .commit()
                     supportActionBar?.title = "Your cart"
                     drawerLayout.closeDrawers()
                 }
                 R.id.menu_my_wishList -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, MyWishList()).commit()
+                        .replace(R.id.frameLayout, WishListFragment()).commit()
                     supportActionBar?.title = "Your WishList"
                     drawerLayout.closeDrawers()
                 }
                 R.id.menu_my_orders -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.frameLayout, MyOrders())
+                    supportFragmentManager.beginTransaction().replace(R.id.frameLayout, OrdersFragment())
                         .commit()
                     supportActionBar?.title = "Your Orders"
                     drawerLayout.closeDrawers()
                 }
                 R.id.menu_my_account -> {
-                    supportFragmentManager.beginTransaction().replace(R.id.frameLayout, MyAccount())
+                    supportFragmentManager.beginTransaction().replace(R.id.frameLayout, AccountFragment())
                         .commit()
                     supportActionBar?.title = "Your Account"
                     drawerLayout.closeDrawers()
