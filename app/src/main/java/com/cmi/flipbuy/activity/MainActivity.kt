@@ -1,5 +1,7 @@
 package com.cmi.flipbuy.activity
 
+import activity.LoginActivity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -12,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.cmi.flipbuy.*
 import com.cmi.flipbuy.fragment.DashboardFragment
+import com.google.firebase.auth.FirebaseAuth
 
 import fragment.AccountFragment
 import fragment.CartFragment
@@ -83,6 +86,12 @@ class MainActivity : AppCompatActivity() {
                     drawerLayout.closeDrawers()
 
                 }
+                R.id.menu_signout->{
+                    FirebaseAuth.getInstance().signOut()
+                    finish()
+                    val intent= Intent(this,LoginActivity::class.java)
+                    startActivity(intent)
+                }
             }
             return@setNavigationItemSelectedListener true
 
@@ -117,4 +126,5 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
+
 }

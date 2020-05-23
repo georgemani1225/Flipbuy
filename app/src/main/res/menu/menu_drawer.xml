@@ -3,13 +3,16 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/menu_dashboard"
-            android:title="Dashboard"/>
+            android:title="Dashboard"
+            android:icon="@drawable/ic_dashboard"/>
         <item
             android:id="@+id/menu_Offers"
-            android:title="Offers"/>
+            android:title="Offers"
+            android:icon="@drawable/ic_offers"/>
         <item
             android:id="@+id/menu_products"
-            android:title="Other Products"/>
+            android:title="Other Products"
+            android:icon="@drawable/ic_products"/>
         <item
             android:id="@+id/menu_my_cart"
             android:title="My Cart"
@@ -26,6 +29,9 @@
             android:id="@+id/menu_my_account"
             android:title="My Account"
             android:icon="@drawable/ic_acoount"/>
+        <item
+            android:id="@+id/seller"
+            android:title="I'm here to sell" />
         <item
             android:id="@+id/menu_signout"
             android:title="Sign Out"/>
