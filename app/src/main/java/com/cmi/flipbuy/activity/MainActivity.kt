@@ -13,13 +13,10 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.cmi.flipbuy.*
-import com.cmi.flipbuy.fragment.DashboardFragment
+import com.cmi.flipbuy.fragment.*
 import com.google.firebase.auth.FirebaseAuth
 
-import fragment.AccountFragment
-import fragment.CartFragment
-import fragment.OrdersFragment
-import fragment.WishListFragment
+
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +36,8 @@ class MainActivity : AppCompatActivity() {
         ToolBar = findViewById(R.id.ToolBar)
         navigationView = findViewById(R.id.navigationView)
         frameLayout=findViewById(R.id.frameLayout)
+
+        openDashboard()
         setUpToolBar()
 
         val actionBarDrawerToggle = ActionBarDrawerToggle(
@@ -59,6 +58,12 @@ class MainActivity : AppCompatActivity() {
             when (it.itemId) {
                 R.id.menu_dashboard->{
                     openDashboard()
+                    drawerLayout.closeDrawers()
+                }
+                R.id.menu_Offers -> {
+                    supportFragmentManager.beginTransaction().replace(R.id.frameLayout, CartFragment())
+                        .commit()
+                    supportActionBar?.title = "Offers"
                     drawerLayout.closeDrawers()
                 }
                 R.id.menu_my_cart -> {
@@ -112,8 +117,10 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
     fun openDashboard(){
+        val fragment=DashboardFragment()
         val transaction=supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.frameLayout,DashboardFragment()).commit()
+        transaction.replace(R.id.frameLayout,fragment)
+        transaction.commit()
         supportActionBar?.title="Flip Buy"
         navigationView.setCheckedItem(R.id.menu_dashboard)
     }
