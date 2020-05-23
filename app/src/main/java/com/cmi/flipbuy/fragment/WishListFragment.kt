@@ -1,4 +1,4 @@
-package fragment
+package com.cmi.flipbuy.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

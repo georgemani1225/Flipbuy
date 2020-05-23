@@ -14,12 +14,12 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.cmi.flipbuy.*
 import com.cmi.flipbuy.fragment.DashboardFragment
+import com.cmi.flipbuy.fragment.AccountFragment
+import com.cmi.flipbuy.fragment.CartFragment
+import com.cmi.flipbuy.fragment.OrdersFragment
+import com.cmi.flipbuy.fragment.WishListFragment
 import com.google.firebase.auth.FirebaseAuth
 
-import fragment.AccountFragment
-import fragment.CartFragment
-import fragment.OrdersFragment
-import fragment.WishListFragment
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -29,17 +29,21 @@ class MainActivity : AppCompatActivity() {
     lateinit var ToolBar:Toolbar
     lateinit var frameLayout: FrameLayout
     lateinit var navigationView:NavigationView
+
     var previousMenuItem:MenuItem?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
         drawerLayout = findViewById(R.id.drawerLayout)
         coordinatorLayout = findViewById(R.id.coordinatorLayout)
         ToolBar = findViewById(R.id.ToolBar)
         navigationView = findViewById(R.id.navigationView)
         frameLayout=findViewById(R.id.frameLayout)
+
         setUpToolBar()
+        openDashboard()
 
         val actionBarDrawerToggle = ActionBarDrawerToggle(
             this@MainActivity, drawerLayout,
@@ -48,6 +52,7 @@ class MainActivity : AppCompatActivity() {
         )
         drawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
+
         navigationView.setNavigationItemSelectedListener {
             if (previousMenuItem!=null){
                 previousMenuItem?.isChecked=false
@@ -60,6 +65,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_dashboard->{
                     openDashboard()
                     drawerLayout.closeDrawers()
+                }
+                R.id.menu_Offers->{
+                    supportFragmentManager.beginTransaction().replace(R.id.frameLayout, CartFragment())
+                        .commit()
+                    supportActionBar?.title = "Offers"
+                    drawerLayout.closeDrawers()
+
                 }
                 R.id.menu_my_cart -> {
                     supportFragmentManager.beginTransaction().replace(R.id.frameLayout, CartFragment())
@@ -112,8 +124,10 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
     fun openDashboard(){
+        val fragment= DashboardFragment()
         val transaction=supportFragmentManager.beginTransaction()
-        transaction.replace(R.id.frameLayout,DashboardFragment()).commit()
+        transaction.replace(R.id.frameLayout,fragment)
+        transaction.commit()
         supportActionBar?.title="Flip Buy"
         navigationView.setCheckedItem(R.id.menu_dashboard)
     }

@@ -1,4 +1,4 @@
-package fragment
+package com.cmi.flipbuy.fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -17,7 +17,8 @@ class CartFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_my_cart, container, false)
+        val view=inflater.inflate(R.layout.fragment_my_cart, container, false)
+        return view
     }
 
 }
