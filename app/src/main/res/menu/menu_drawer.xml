@@ -3,38 +3,41 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/menu_dashboard"
-            android:title="Dashboard"
+            android:title="@string/dashboard"
             android:icon="@drawable/ic_dashboard"/>
         <item
             android:id="@+id/menu_Offers"
-            android:title="Offers"
+            android:title="@string/offers"
             android:icon="@drawable/ic_offers"/>
         <item
             android:id="@+id/menu_products"
-            android:title="Other Products"
+            android:title="@string/other_products"
             android:icon="@drawable/ic_products"/>
         <item
             android:id="@+id/menu_my_cart"
-            android:title="My Cart"
+            android:title="@string/my_cart"
             android:icon="@drawable/ic_cart"/>
         <item
             android:id="@+id/menu_my_wishList"
-            android:title="My WishList"
+            android:title="@string/my_wishlist"
             android:icon="@drawable/ic_wishlist"/>
         <item
             android:id="@+id/menu_my_orders"
-            android:title="My Orders"
+            android:title="@string/my_orders"
             android:icon="@drawable/ic_orders"/>
         <item
             android:id="@+id/menu_my_account"
-            android:title="My Account"
+            android:title="@string/my_account"
             android:icon="@drawable/ic_acoount"/>
         <item
             android:id="@+id/seller"
-            android:title="I'm here to sell" />
+            android:title="@string/i_m_here_to_sell"
+            android:icon="@drawable/ic_sell"/>
         <item
             android:id="@+id/menu_signout"
-            android:title="Sign Out"/>
+            android:title="@string/sign_out"
+            android:icon="@drawable/ic_signout"
+            />
 
 
     </group>
