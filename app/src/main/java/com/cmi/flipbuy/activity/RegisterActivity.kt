@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
@@ -38,6 +39,11 @@ class RegisterActivity : AppCompatActivity() {
         val cpassword = etConfirmPassword.text.toString()
         if (email.isEmpty() || rpassword.isEmpty() || name.isEmpty() || mobileno.isEmpty() || address.isEmpty() || cpassword.isEmpty()) {
             Toast.makeText(this, "Please enter the credentials", Toast.LENGTH_LONG).show()
+            return
+        }
+        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
+        {
+            Toast.makeText(this, "Invalid Email Address", Toast.LENGTH_LONG).show()
             return
         }
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, rpassword)

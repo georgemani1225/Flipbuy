@@ -1,9 +1,15 @@
 package activity
 
+import android.content.Context
+import android.content.DialogInterface
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Patterns
+import android.widget.EditText
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import com.cmi.flipbuy.R
 import com.cmi.flipbuy.activity.MainActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -11,19 +17,63 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 
 class LoginActivity : AppCompatActivity() {
+    lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        sharedPreferences =
+            getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE)
+
+        val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
+        if (isLoggedIn) {
+            val intent = Intent(this@LoginActivity, MainActivity::class.java)
+            startActivity(intent)
+        } else {
+            setContentView(R.layout.activity_login)
+        }
+
 
         btnLogin.setOnClickListener {
             login()
+        }
+
+        txtForgetPassword.setOnClickListener {
+         val builder = AlertDialog.Builder(this)
+            builder.setTitle("Forgot Password")
+            val view = layoutInflater.inflate(R.layout.dialog_forgot_password, null)
+            val username = view.findViewById<EditText>(R.id.et_username)
+            builder.setView(view)
+            builder.setPositiveButton("Reset", DialogInterface.OnClickListener{ _, _ ->
+                forgotPassword(username)
+            })
+            builder.setNegativeButton("Close", DialogInterface.OnClickListener{ _, _ ->})
+            builder.show()
         }
 
 
         btnRegisterNew.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
+        }
+    }
+    private fun forgotPassword(username: EditText)
+    {
+        if(username.text.toString().isEmpty())
+        {
+            Toast.makeText(this, "Invalid Email Address", Toast.LENGTH_LONG).show()
+            return
+        }
+        if(!Patterns.EMAIL_ADDRESS.matcher(username.text.toString()).matches())
+        {
+            Toast.makeText(this, "Invalid Email Address", Toast.LENGTH_LONG).show()
+            return
+        }
+        FirebaseAuth.getInstance().sendPasswordResetEmail(username.text.toString())
+            .addOnCompleteListener{task ->
+                if(task.isSuccessful)
+                {
+                    Toast.makeText(this, "Email Sent" , Toast.LENGTH_LONG).show()
+                }
         }
     }
 
@@ -38,6 +88,7 @@ class LoginActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
+                        savePreferences()
                         val intent = Intent(this, MainActivity::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                         startActivity(intent)
@@ -50,8 +101,15 @@ class LoginActivity : AppCompatActivity() {
                     Toast.makeText(this, "Error message:${it.message}", Toast.LENGTH_LONG).show()
                 }
         }
+    }
 
+    override fun onPause() {
+        super.onPause()
+        finish()
+    }
 
+    fun savePreferences() {
+        sharedPreferences.edit().putBoolean("isLoggedIn", true).apply()
     }
 }
 

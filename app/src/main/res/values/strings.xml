@@ -8,6 +8,7 @@
     <string name="register_new">New User? Register</string>
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
+    <string name="preference_file_name">Flipbuy Preferences</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
