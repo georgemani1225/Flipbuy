@@ -103,7 +103,7 @@
             android:background="@drawable/edit_text_style"
             android:drawableStart="@drawable/ic_password"
             android:drawablePadding="10dp"
-            android:hint="Password (Min 4 characters)"
+            android:hint="Password (Min 6 characters)"
             android:inputType="textPassword"
             android:padding="10dp"
             android:textSize="18sp" />
