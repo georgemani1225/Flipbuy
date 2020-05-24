@@ -18,7 +18,7 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
-    val nameOfDashboard="Flip Buy"
+    val nameOfDashboard = "Flip Buy"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,52 +38,37 @@ class LoginActivity : AppCompatActivity() {
         }
 
         txtForgetPassword.setOnClickListener {
-         val builder = AlertDialog.Builder(this)
-            builder.setTitle("Forgot Password")
-            val view = layoutInflater.inflate(R.layout.dialog_forgot_password, null)
-            val username = view.findViewById<EditText>(R.id.et_username)
-            builder.setView(view)
-            builder.setPositiveButton("Reset", DialogInterface.OnClickListener{ _, _ ->
-                forgotPassword(username)
-            })
-            builder.setNegativeButton("Close", DialogInterface.OnClickListener{ _, _ ->})
-            builder.show()
+            forgotPassword()
         }
-
 
         btnRegisterNew.setOnClickListener {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
         }
     }
-    private fun forgotPassword(username: EditText)
-    {
-        if(username.text.toString().isEmpty())
-        {
-            Toast.makeText(this, "Invalid Email Address", Toast.LENGTH_LONG).show()
-            return
-        }
-        if(!Patterns.EMAIL_ADDRESS.matcher(username.text.toString()).matches())
-        {
-            Toast.makeText(this, "Invalid Email Address", Toast.LENGTH_LONG).show()
-            return
-        }
-        FirebaseAuth.getInstance().sendPasswordResetEmail(username.text.toString())
-            .addOnCompleteListener{task ->
-                if(task.isSuccessful)
-                {
-                    Toast.makeText(this, "Email Sent" , Toast.LENGTH_LONG).show()
+
+    private fun forgotPassword() {
+        val emailfp = etLoginMailid.text.toString()
+        if (emailfp.isEmpty()) {
+            Toast.makeText(this, "Please enter mail id", Toast.LENGTH_LONG).show()
+        } else {
+            FirebaseAuth.getInstance().sendPasswordResetEmail(emailfp)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this, "Password reset mail sent", Toast.LENGTH_LONG).show()
+                    }
                 }
         }
+
     }
 
     private fun login() {
         val email = etLoginMailid.text.toString()
         val password = etLoginPassword.text.toString()
         if (email == "") {
-            Toast.makeText(this, "PLease enter mail id", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Please enter mail id", Toast.LENGTH_LONG).show()
         } else if (password == "") {
-            Toast.makeText(this, "PLease enter password", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Please enter password", Toast.LENGTH_LONG).show()
         } else {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
@@ -108,9 +93,9 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    fun savePreferences(title:String) {
+    fun savePreferences(title: String) {
         sharedPreferences.edit().putBoolean("isLoggedIn", true).apply()
-        sharedPreferences.edit().putString("Title",title).apply()
+        sharedPreferences.edit().putString("Title", title).apply()
     }
 }
 
