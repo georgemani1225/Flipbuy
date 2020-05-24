@@ -1,7 +1,9 @@
 package com.cmi.flipbuy.activity
 
 import activity.LoginActivity
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -26,16 +28,22 @@ class MainActivity : AppCompatActivity() {
     lateinit var ToolBar:Toolbar
     lateinit var frameLayout: FrameLayout
     lateinit var navigationView:NavigationView
+    lateinit var  sharedPreferences: SharedPreferences
+    lateinit var menuSignout:MenuItem
     var previousMenuItem:MenuItem?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        sharedPreferences=getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE)
         setContentView(R.layout.activity_main)
         drawerLayout = findViewById(R.id.drawerLayout)
         coordinatorLayout = findViewById(R.id.coordinatorLayout)
         ToolBar = findViewById(R.id.ToolBar)
         navigationView = findViewById(R.id.navigationView)
         frameLayout=findViewById(R.id.frameLayout)
+
+        var titleName=sharedPreferences.getString("Title","Flip buy")
+        title=titleName
 
         openDashboard()
         setUpToolBar()
@@ -91,12 +99,18 @@ class MainActivity : AppCompatActivity() {
                     drawerLayout.closeDrawers()
 
                 }
+
                 R.id.menu_signout->{
-                    FirebaseAuth.getInstance().signOut()
-                    finish()
+
+
                     val intent= Intent(this,LoginActivity::class.java)
                     startActivity(intent)
+                    sharedPreferences.edit().clear().apply()
+                    finish()
                 }
+
+
+
             }
             return@setNavigationItemSelectedListener true
 

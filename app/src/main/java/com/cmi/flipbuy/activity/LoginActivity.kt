@@ -18,20 +18,20 @@ import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
     lateinit var sharedPreferences: SharedPreferences
+    val nameOfDashboard="Flip Buy"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         sharedPreferences =
             getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE)
+        setContentView(R.layout.activity_login)
 
         val isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false)
         if (isLoggedIn) {
             val intent = Intent(this@LoginActivity, MainActivity::class.java)
             startActivity(intent)
-        } else {
-            setContentView(R.layout.activity_login)
+            finish()
         }
-
 
         btnLogin.setOnClickListener {
             login()
@@ -88,7 +88,7 @@ class LoginActivity : AppCompatActivity() {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
                     if (it.isSuccessful) {
-                        savePreferences()
+                        savePreferences(nameOfDashboard)
                         val intent = Intent(this, MainActivity::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                         startActivity(intent)
@@ -108,8 +108,9 @@ class LoginActivity : AppCompatActivity() {
         finish()
     }
 
-    fun savePreferences() {
+    fun savePreferences(title:String) {
         sharedPreferences.edit().putBoolean("isLoggedIn", true).apply()
+        sharedPreferences.edit().putString("Title",title).apply()
     }
 }
 
