@@ -95,21 +95,6 @@
         android:textColor="#ffffff"
         android:textStyle="bold"
         android:textSize="16sp"/>
-    <Button
-        android:id="@+id/btnAdminLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtForgetPassword"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textAllCaps="false"
-        android:layout_marginBottom="18dp"
-        android:background="@drawable/login_button"
-        android:text="Admin Login"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        />
 
 
 </RelativeLayout>

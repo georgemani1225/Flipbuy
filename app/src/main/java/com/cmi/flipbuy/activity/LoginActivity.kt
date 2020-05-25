@@ -11,10 +11,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.cmi.flipbuy.R
-import com.cmi.flipbuy.activity.AdminActivity
 import com.cmi.flipbuy.activity.MainActivity
 import com.google.firebase.auth.FirebaseAuth
-import kotlinx.android.synthetic.main.activity_admin.*
 import kotlinx.android.synthetic.main.activity_login.*
 
 
@@ -47,10 +45,6 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
         }
-        btnAdminLogin.setOnClickListener{
-            val intent = Intent(this@LoginActivity, AdminActivity::class.java)
-        }
-
     }
 
     private fun forgotPassword() {

@@ -8,10 +8,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.View
 import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.TextView
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
@@ -25,7 +22,6 @@ import com.google.firebase.auth.FirebaseAuth
 
 
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,8 +31,6 @@ class MainActivity : AppCompatActivity() {
     lateinit var frameLayout: FrameLayout
     lateinit var navigationView: NavigationView
     lateinit var sharedPreferences: SharedPreferences
-    lateinit var userName:TextView
-    lateinit var circleProfilePic:ImageView
     lateinit var menuSignout: MenuItem
     var previousMenuItem: MenuItem? = null
 
@@ -50,15 +44,12 @@ class MainActivity : AppCompatActivity() {
         ToolBar = findViewById(R.id.ToolBar)
         navigationView = findViewById(R.id.navigationView)
         frameLayout = findViewById(R.id.frameLayout)
-        userName=findViewById(R.id.user_name)
-        circleProfilePic=findViewById(R.id.profile_image)
 
         var titleName = sharedPreferences.getString("Title", "Flip buy")
         title = titleName
 
         openDashboard()
         setUpToolBar()
-
 
         val actionBarDrawerToggle = ActionBarDrawerToggle(
             this@MainActivity, drawerLayout,
