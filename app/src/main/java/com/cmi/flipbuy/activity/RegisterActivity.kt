@@ -28,6 +28,7 @@ class RegisterActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
     }
 
     private fun performRegister() {
@@ -59,7 +60,9 @@ class RegisterActivity : AppCompatActivity() {
                     userHashMap["Email"] = email
                     userHashMap["Mobile Number"] = mobileno
                     userHashMap["Delivery Address"] = address
+
                     mDatabase.updateChildren(userHashMap)
+
                 } else {
                     Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
                 }
