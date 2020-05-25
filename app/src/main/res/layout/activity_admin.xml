@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff8c00"
-    tools:context="activity.LoginActivity">
-
+    tools:context=".activity.AdminActivity"
+    android:background="#ff8c00">
     <ImageView
         android:id="@+id/imgLogoLogin"
         android:layout_width="150dp"
@@ -14,9 +13,8 @@
         android:layout_centerHorizontal="true"
         android:layout_margin="16dp"
         android:src="@drawable/shopping" />
-
     <EditText
-        android:id="@+id/etLoginMailid"
+        android:id="@+id/etLoginAdminMailid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgLogoLogin"
@@ -32,12 +30,11 @@
         android:padding="10dp"
         android:paddingTop="20dp"
         android:textSize="18sp" />
-
     <EditText
-        android:id="@+id/etLoginPassword"
+        android:id="@+id/etLoginAdminPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etLoginMailid"
+        android:layout_below="@+id/etLoginAdminMailid"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
         android:layout_marginRight="20dp"
@@ -49,67 +46,21 @@
         android:inputType="textPassword"
         android:padding="10dp"
         android:textSize="18sp" />
-
     <Button
-        android:id="@+id/btnLogin"
+        android:id="@+id/btnLoginasAdmin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/etLoginPassword"
+        android:layout_below="@+id/etLoginAdminPassword"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/login_button"
         android:elevation="10dp"
         android:padding="10dp"
-        android:text="@string/login"
+        android:text="Login as Admin"
         android:textStyle="bold"
         android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="16sp" />
-
-    <TextView
-        android:id="@+id/txtForgetPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/btnLogin"
-        android:layout_centerInParent="true"
-        android:layout_margin="10dp"
-        android:padding="8dp"
-        android:textSize="16sp"
-        android:clickable="true"
-        android:textStyle="bold"
-        android:text="@string/forget_password"
-        android:textColor="#ffffff"
-        android:focusable="true" />
-
-    <Button
-        android:id="@+id/btnRegisterNew"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textAllCaps="false"
-        android:layout_marginBottom="18dp"
-        android:background="@drawable/login_button"
-        android:text="@string/register_new"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:textSize="16sp"/>
-    <Button
-        android:id="@+id/btnAdminLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtForgetPassword"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textAllCaps="false"
-        android:layout_marginBottom="18dp"
-        android:background="@drawable/login_button"
-        android:text="Admin Login"
-        android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:textSize="16sp"
-        />
 
 
 </RelativeLayout>
