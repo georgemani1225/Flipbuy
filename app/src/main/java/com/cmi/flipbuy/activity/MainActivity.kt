@@ -110,14 +110,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_signout -> {
                     val builder = AlertDialog.Builder(this)
                     builder.setTitle("Confirm Signout")
-                    builder.setMessage("Are you sure you want to signout of this app?")
                     builder.setPositiveButton("Signout", DialogInterface.OnClickListener { _, _ ->
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
                         sharedPreferences.edit().clear().apply()
                         finish()
                     })
-                    builder.setNegativeButton("Cancel", DialogInterface.OnClickListener { _, _ -> })
+                    builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ -> })
                     builder.show()
                 }
             }

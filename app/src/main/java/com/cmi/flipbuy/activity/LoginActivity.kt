@@ -1,15 +1,11 @@
 package activity
 
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Patterns
-import android.widget.EditText
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import com.cmi.flipbuy.R
 import com.cmi.flipbuy.activity.MainActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -45,6 +41,7 @@ class LoginActivity : AppCompatActivity() {
             val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
             startActivity(intent)
         }
+
     }
 
     private fun forgotPassword() {
