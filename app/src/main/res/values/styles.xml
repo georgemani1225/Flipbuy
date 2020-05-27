@@ -3,15 +3,17 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimary">@color/OurColor2</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
     <style name="ToolBarThemeRegister" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#ff6200</item>
-        <item name="colorPrimaryDark">#ff6200</item>
-        <item name="titleTextColor">#ffffff</item>
+        <item name="colorPrimary">#ffffff</item>
+        <item name="colorPrimaryDark">#005059</item>
+        <item name="titleTextColor">@color/OurColor2
+
+        </item>
         <item name="android:fontFamily">sans-serif</item>
         <item name="android:textColorSecondary">#ffffff</item>
     </style>

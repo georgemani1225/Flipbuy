@@ -1,5 +1,5 @@
 package com.cmi.flipbuy.activity
-
+import kotlinx.android.synthetic.main.activity_main.*
 import activity.LoginActivity
 import android.content.Context
 import android.content.DialogInterface
@@ -18,10 +18,11 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.cmi.flipbuy.*
 import com.cmi.flipbuy.fragment.*
+
 import com.google.firebase.auth.FirebaseAuth
 
 
-import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
