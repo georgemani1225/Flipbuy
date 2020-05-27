@@ -1,5 +1,4 @@
 package com.cmi.flipbuy.activity
-import kotlinx.android.synthetic.main.activity_main.*
 import activity.LoginActivity
 import android.content.Context
 import android.content.DialogInterface
@@ -18,10 +17,6 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.cmi.flipbuy.*
 import com.cmi.flipbuy.fragment.*
-
-import com.google.firebase.auth.FirebaseAuth
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -104,6 +99,14 @@ class MainActivity : AppCompatActivity() {
                         .replace(R.id.frameLayout, AccountFragment())
                         .commit()
                     supportActionBar?.title = "Your Account"
+                    drawerLayout.closeDrawers()
+
+                }
+                R.id.menu_seller->{
+                    val intent=Intent(this,
+                        AdminCategoryActivity::class.java)
+                    startActivity(intent)
+                    supportActionBar?.title="Admin"
                     drawerLayout.closeDrawers()
 
                 }

@@ -5,7 +5,7 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/OurColor2</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/OurColor2</item>
     </style>
 
     <style name="ToolBarThemeRegister" parent="Theme.AppCompat.Light.NoActionBar">

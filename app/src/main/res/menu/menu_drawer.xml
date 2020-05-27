@@ -30,7 +30,7 @@
             android:title="@string/my_account"
             android:icon="@drawable/ic_acoount"/>
         <item
-            android:id="@+id/seller"
+            android:id="@+id/menu_seller"
             android:title="@string/i_m_here_to_sell"
             android:icon="@drawable/ic_sell"/>
         <item

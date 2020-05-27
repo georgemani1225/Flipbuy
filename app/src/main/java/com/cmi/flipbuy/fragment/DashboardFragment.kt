@@ -17,7 +17,8 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false)
+        val View= inflater.inflate(R.layout.fragment_dashboard, container, false)
+        return View
     }
 
 }
