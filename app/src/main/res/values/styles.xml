@@ -9,13 +9,13 @@
     </style>
 
     <style name="ToolBarThemeRegister" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#ffffff</item>
+        <item name="colorPrimary">@color/OurColor2</item>
         <item name="colorPrimaryDark">#005059</item>
         <item name="titleTextColor">@color/OurColor2
 
         </item>
         <item name="android:fontFamily">sans-serif</item>
-        <item name="android:textColorSecondary">#ffffff</item>
+        <item name="android:textColorSecondary">@color/OurColor2</item>
     </style>
 
     <style name="ToolBar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
