@@ -26,5 +26,20 @@ class AdminCategoryActivity : AppCompatActivity() {
             intent.putExtra("category","tshirts")
             startActivity(intent)
         }
+        womenDress.setOnClickListener {
+            val intent= Intent(this@AdminCategoryActivity,AdminAddProductActivity::class.java)
+            intent.putExtra("category","tshirts")
+            startActivity(intent)
+        }
+        menDress.setOnClickListener {
+            val intent= Intent(this@AdminCategoryActivity,AdminAddProductActivity::class.java)
+            intent.putExtra("category","tshirts")
+            startActivity(intent)
+        }
+        menDress.setOnClickListener {
+            val intent= Intent(this@AdminCategoryActivity,AdminAddProductActivity::class.java)
+            intent.putExtra("category","tshirts")
+            startActivity(intent)
+        }
     }
 }
