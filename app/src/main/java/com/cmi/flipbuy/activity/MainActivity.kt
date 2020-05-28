@@ -1,14 +1,22 @@
 package com.cmi.flipbuy.activity
 
 import activity.LoginActivity
+import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.DialogInterface
 import android.content.Intent
 import android.content.SharedPreferences
+import android.graphics.drawable.BitmapDrawable
+import android.media.MediaRouter
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
+import android.provider.MediaStore
 import android.view.MenuItem
-import android.widget.FrameLayout
+import android.view.View
+import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
@@ -21,12 +29,15 @@ import com.cmi.flipbuy.R
 import com.cmi.flipbuy.fragment.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import kotlinx.android.synthetic.main.drawer_header.*
-
+import com.google.firebase.storage.FirebaseStorage
+import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.activity_drawer_header.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
     lateinit var drawerLayout: DrawerLayout
+    lateinit var imgProfile: CircleImageView
     lateinit var coordinatorLayout: CoordinatorLayout
     lateinit var ToolBar: Toolbar
     lateinit var frameLayout: FrameLayout
@@ -35,6 +46,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var menuSignout: MenuItem
     lateinit var mDatabase: DatabaseReference
     var previousMenuItem: MenuItem? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +58,14 @@ class MainActivity : AppCompatActivity() {
         ToolBar = findViewById(R.id.ToolBar)
         navigationView = findViewById(R.id.navigationView)
         frameLayout = findViewById(R.id.frameLayout)
+        imgProfile = navigationView.getHeaderView(0).findViewById(R.id.imgProfile)
+
+        imgProfile.setOnClickListener {
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            startActivityForResult(intent, 0)
+            uploadImageToFirebaseStorage()
+        }
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Users")
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
@@ -56,7 +76,7 @@ class MainActivity : AppCompatActivity() {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val result = dataSnapshot.child("Name").getValue().toString()
-                user_name.text = result
+                txtUsername.text = result
             }
         })
 
@@ -81,6 +101,8 @@ class MainActivity : AppCompatActivity() {
             it.isChecked = true
             previousMenuItem = it
 
+
+
             when (it.itemId) {
                 R.id.menu_dashboard -> {
                     openDashboard()
@@ -93,6 +115,7 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.title = "Offers"
                     drawerLayout.closeDrawers()
                 }
+
                 R.id.menu_my_cart -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frameLayout, CartFragment())
@@ -136,13 +159,17 @@ class MainActivity : AppCompatActivity() {
                     val builder = AlertDialog.Builder(this)
                     builder.setTitle("Confirm Signout")
                     builder.setMessage("Are you sure you want to signout of this app?")
-                    builder.setPositiveButton("Signout", DialogInterface.OnClickListener { _, _ ->
-                        val intent = Intent(this, LoginActivity::class.java)
-                        startActivity(intent)
-                        sharedPreferences.edit().clear().apply()
-                        finish()
-                    })
-                    builder.setNegativeButton("Cancel", DialogInterface.OnClickListener { _, _ -> })
+                    builder.setPositiveButton(
+                        "Signout",
+                        DialogInterface.OnClickListener { _, _ ->
+                            val intent = Intent(this, LoginActivity::class.java)
+                            startActivity(intent)
+                            sharedPreferences.edit().clear().apply()
+                            finish()
+                        })
+                    builder.setNegativeButton(
+                        "Cancel",
+                        DialogInterface.OnClickListener { _, _ -> })
                     builder.show()
                 }
             }
@@ -155,6 +182,33 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.title = "Flip buy"
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    var selectedPhotoUri: Uri? = null
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 0 && resultCode == Activity.RESULT_OK && data != null) {
+            selectedPhotoUri = data.data
+
+            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoUri)
+            imgProfile.setImageBitmap(bitmap)
+        }
+    }
+
+    private fun uploadImageToFirebaseStorage() {
+        if (selectedPhotoUri == null) return
+        val filename = UUID.randomUUID().toString()
+        val ref = FirebaseStorage.getInstance().getReference("/UsersImages/$filename")
+        ref.putFile(selectedPhotoUri!!)
+            .addOnSuccessListener {
+                FirebaseDatabase.getInstance().getReference("Users")
+                    .child(FirebaseAuth.getInstance().currentUser!!.uid).child("Profile Pic")
+                    .removeValue()
+                FirebaseDatabase.getInstance().getReference("Users")
+                    .child(FirebaseAuth.getInstance().currentUser!!.uid).child("Profile Pic")
+                    .setValue(ref.downloadUrl)
+            }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
