@@ -4,24 +4,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ff8c00"
+    android:background="@color/OurColor1"
     tools:context="activity.LoginActivity">
 
     <ImageView
         android:id="@+id/imgLogoLogin"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="206dp"
+        android:layout_height="192dp"
         android:layout_centerHorizontal="true"
-        android:layout_margin="16dp"
-        android:src="@drawable/shopping" />
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/shopping1" />
 
     <EditText
+
         android:id="@+id/etLoginMailid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/imgLogoLogin"
         android:layout_centerVertical="true"
         android:layout_marginLeft="20dp"
+        android:shadowColor="#ffffff"
+        android:backgroundTint="@color/OurColor2"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/edit_text_style"
@@ -31,7 +36,8 @@
         android:inputType="textEmailAddress"
         android:padding="10dp"
         android:paddingTop="20dp"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textColorHint="@color/OurColor4"/>
 
     <EditText
         android:id="@+id/etLoginPassword"
@@ -40,6 +46,8 @@
         android:layout_below="@+id/etLoginMailid"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="15dp"
+        android:shadowColor="#ffffff"
+        android:backgroundTint="@color/OurColor2"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="15dp"
         android:background="@drawable/edit_text_style"
@@ -48,17 +56,20 @@
         android:hint="@string/enter_password"
         android:inputType="textPassword"
         android:padding="10dp"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:textColorHint="@color/OurColor4"/>
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/etLoginPassword"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
-        android:background="@drawable/login_button"
+        android:background="@color/OurColor1"
         android:elevation="10dp"
+        android:layout_centerHorizontal="true"
         android:padding="10dp"
         android:text="@string/login"
         android:textStyle="bold"
@@ -70,46 +81,47 @@
         android:id="@+id/txtForgetPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnLogin"
-        android:layout_centerInParent="true"
-        android:layout_margin="10dp"
+        android:layout_toRightOf="@+id/btnLogin"
+        android:layout_marginLeft="5dp"
+        android:layout_below="@+id/etLoginPassword"
         android:padding="8dp"
-        android:textSize="16sp"
+        android:textSize="10sp"
+        android:layout_marginTop="20dp"
         android:clickable="true"
         android:textStyle="bold"
         android:text="@string/forget_password"
         android:textColor="#ffffff"
         android:focusable="true" />
 
-    <Button
-        android:id="@+id/btnRegisterNew"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/txtRegisterNew"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+
         android:textAllCaps="false"
-        android:layout_marginBottom="18dp"
-        android:background="@drawable/login_button"
+        android:layout_marginBottom="20dp"
+        android:background="@color/OurColor1"
         android:text="@string/register_new"
         android:textColor="#ffffff"
-        android:textStyle="bold"
-        android:textSize="16sp"/>
-    <Button
-        android:id="@+id/btnAdminLogin"
-        android:layout_width="match_parent"
+
+        android:textSize="10sp"/>
+
+    <TextView
+        android:id="@+id/txtSignUp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/txtForgetPassword"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="2dp"
         android:textAllCaps="false"
         android:layout_marginBottom="18dp"
-        android:background="@drawable/login_button"
-        android:text="Admin Login"
+        android:background="@color/OurColor1"
+        android:layout_toRightOf="@+id/txtRegisterNew"
+        android:text="@string/sign_up"
         android:textColor="#ffffff"
         android:textStyle="bold"
-        android:textSize="16sp"
-        />
+        android:textSize="12sp"/>
 
 
 </RelativeLayout>

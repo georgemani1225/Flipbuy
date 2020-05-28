@@ -104,7 +104,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.menu_seller->{
                     val intent=Intent(this,
-                        AdminCategoryActivity::class.java)
+                        AdminAddProductActivity::class.java)
                     startActivity(intent)
                     supportActionBar?.title="Admin"
                     drawerLayout.closeDrawers()
