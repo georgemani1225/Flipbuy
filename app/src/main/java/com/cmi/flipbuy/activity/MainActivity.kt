@@ -16,7 +16,11 @@ import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.cmi.flipbuy.*
+import com.cmi.flipbuy.R
 import com.cmi.flipbuy.fragment.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.*
+import kotlinx.android.synthetic.main.drawer_header.*
 
 
 class MainActivity : AppCompatActivity() {
@@ -28,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var navigationView: NavigationView
     lateinit var sharedPreferences: SharedPreferences
     lateinit var menuSignout: MenuItem
+    lateinit var mDatabase: DatabaseReference
     var previousMenuItem: MenuItem? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +45,19 @@ class MainActivity : AppCompatActivity() {
         ToolBar = findViewById(R.id.ToolBar)
         navigationView = findViewById(R.id.navigationView)
         frameLayout = findViewById(R.id.frameLayout)
+
+        mDatabase = FirebaseDatabase.getInstance().getReference("Users")
+            .child(FirebaseAuth.getInstance().currentUser!!.uid)
+        mDatabase.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val result = dataSnapshot.child("Name").getValue().toString()
+                user_name.text = result
+            }
+
+        })
 
         var titleName = sharedPreferences.getString("Title", "Flip buy")
         title = titleName
@@ -114,13 +132,14 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_signout -> {
                     val builder = AlertDialog.Builder(this)
                     builder.setTitle("Confirm Signout")
+                    builder.setMessage("Are you sure you want to signout of this app?")
                     builder.setPositiveButton("Signout", DialogInterface.OnClickListener { _, _ ->
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
                         sharedPreferences.edit().clear().apply()
                         finish()
                     })
-                    builder.setNegativeButton("Close", DialogInterface.OnClickListener { _, _ -> })
+                    builder.setNegativeButton("Cancel", DialogInterface.OnClickListener { _, _ -> })
                     builder.show()
                 }
             }
