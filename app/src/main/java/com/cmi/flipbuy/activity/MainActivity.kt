@@ -1,4 +1,5 @@
 package com.cmi.flipbuy.activity
+
 import activity.LoginActivity
 import android.content.Context
 import android.content.DialogInterface
@@ -52,11 +53,11 @@ class MainActivity : AppCompatActivity() {
             override fun onCancelled(p0: DatabaseError) {
 
             }
+
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val result = dataSnapshot.child("Name").getValue().toString()
                 user_name.text = result
             }
-
         })
 
         var titleName = sharedPreferences.getString("Title", "Flip buy")
@@ -120,11 +121,13 @@ class MainActivity : AppCompatActivity() {
                     drawerLayout.closeDrawers()
 
                 }
-                R.id.menu_seller->{
-                    val intent=Intent(this,
-                        AdminCategoryActivity::class.java)
+                R.id.menu_seller -> {
+                    val intent = Intent(
+                        this,
+                        AdminCategoryActivity::class.java
+                    )
                     startActivity(intent)
-                    supportActionBar?.title="Admin"
+                    supportActionBar?.title = "Admin"
                     drawerLayout.closeDrawers()
 
                 }
