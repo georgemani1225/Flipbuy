@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.AdminCategoryActivity">
+    <TextView
+        android:id="@+id/txtCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="30dp"
+        android:text="Add new Product"
+        android:textAlignment="center"
+        android:textSize="26sp"
+        android:textStyle="bold"/>
+    <LinearLayout
+        android:id="@+id/Linear1CategoryLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/txtCategory">
+        <ImageView
+            android:id="@+id/tShirts"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/shirts"
+            android:layout_margin="10dp"/>
+        <ImageView
+            android:id="@+id/Shoes"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/shoes"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Linear2CategoryLayout"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/Linear1CategoryLayout">
+        <ImageView
+            android:id="@+id/Bags"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/bag" />
+        <ImageView
+            android:id="@+id/accessories"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/accessories"
+            android:layout_margin="10dp"/>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Linear3CategoryLayout"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/Linear2CategoryLayout">
+        <ImageView
+            android:id="@+id/toys"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/toys"
+            android:layout_margin="10dp"/>
+        <ImageView
+            android:id="@+id/cutlery"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/cutlery" />
+    </LinearLayout>
+
+</RelativeLayout>
