@@ -8,13 +8,24 @@
         <item name="colorAccent">@color/OurColor2</item>
     </style>
 
+    <style name="welcome_bac">
+
+        <item name="android:textSize">
+            22sp
+        </item>
+
+        <item name="android:textColor">
+            #7AC9D0
+        </item>
+
+    </style>
+
+
     <style name="ToolBarThemeRegister" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/OurColor2</item>
         <item name="colorPrimaryDark">#005059</item>
-        <item name="titleTextColor">@color/OurColor2
-
-        </item>
-        <item name="android:fontFamily">sans-serif</item>
+        <item name="titleTextColor">@color/OurColor4</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
         <item name="android:textColorSecondary">@color/OurColor2</item>
     </style>
 

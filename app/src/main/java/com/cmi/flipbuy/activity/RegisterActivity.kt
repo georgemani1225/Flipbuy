@@ -26,8 +26,12 @@ class RegisterActivity : AppCompatActivity() {
         }
         toolbar.setTitle("Register Yourself")
         setSupportActionBar(toolbar)
-        supportActionBar?.setHomeButtonEnabled(true)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        val intent = Intent(this, LoginActivity::class.java)
+        startActivity(intent)
     }
 
     private fun performRegister() {

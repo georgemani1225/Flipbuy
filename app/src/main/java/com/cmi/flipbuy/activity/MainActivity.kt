@@ -29,7 +29,6 @@ import com.cmi.flipbuy.R
 import com.cmi.flipbuy.fragment.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.google.firebase.storage.FirebaseStorage
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_drawer_header.*
 import java.util.*
@@ -61,10 +60,11 @@ class MainActivity : AppCompatActivity() {
         imgProfile = navigationView.getHeaderView(0).findViewById(R.id.imgProfile)
 
         imgProfile.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent, 0)
-            uploadImageToFirebaseStorage()
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.navigationView, AccountFragment())
+                .commit()
+            supportActionBar?.title = "Your Account"
+            drawerLayout.closeDrawers()
         }
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Users")
@@ -182,33 +182,6 @@ class MainActivity : AppCompatActivity() {
         supportActionBar?.title = "Flip buy"
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-    }
-
-    var selectedPhotoUri: Uri? = null
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-
-        if (requestCode == 0 && resultCode == Activity.RESULT_OK && data != null) {
-            selectedPhotoUri = data.data
-
-            val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, selectedPhotoUri)
-            imgProfile.setImageBitmap(bitmap)
-        }
-    }
-
-    private fun uploadImageToFirebaseStorage() {
-        if (selectedPhotoUri == null) return
-        val filename = UUID.randomUUID().toString()
-        val ref = FirebaseStorage.getInstance().getReference("/UsersImages/$filename")
-        ref.putFile(selectedPhotoUri!!)
-            .addOnSuccessListener {
-                FirebaseDatabase.getInstance().getReference("Users")
-                    .child(FirebaseAuth.getInstance().currentUser!!.uid).child("Profile Pic")
-                    .removeValue()
-                FirebaseDatabase.getInstance().getReference("Users")
-                    .child(FirebaseAuth.getInstance().currentUser!!.uid).child("Profile Pic")
-                    .setValue(ref.downloadUrl)
-            }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
