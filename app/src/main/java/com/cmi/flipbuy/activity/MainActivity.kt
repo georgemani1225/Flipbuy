@@ -38,7 +38,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     lateinit var drawerLayout: DrawerLayout
-    lateinit var imgProfile: CircleImageView
+    lateinit var imgProfileHeader: CircleImageView
     lateinit var coordinatorLayout: CoordinatorLayout
     lateinit var ToolBar: Toolbar
     lateinit var frameLayout: FrameLayout
@@ -59,9 +59,9 @@ class MainActivity : AppCompatActivity() {
         ToolBar = findViewById(R.id.ToolBar)
         navigationView = findViewById(R.id.navigationView)
         frameLayout = findViewById(R.id.frameLayout)
-        imgProfile = navigationView.getHeaderView(0).findViewById(R.id.imgProfile)
+        imgProfileHeader = navigationView.getHeaderView(0).findViewById(R.id.imgProfileHeader)
 
-        imgProfile.setOnClickListener {
+        imgProfileHeader.setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.navigationView, AccountFragment())
                 .commit()
@@ -69,18 +69,18 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.closeDrawers()
         }
 
-        /*mDatabase = FirebaseDatabase.getInstance().getReference("Users")
+        mDatabase = FirebaseDatabase.getInstance().getReference("Users")
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
 
             }
 
-            //override fun onDataChange(dataSnapshot: DataSnapshot) {
-                //val result = dataSnapshot.child("Name").getValue().toString()
-                //txtUsername.text = result
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val result = dataSnapshot.child("Name").getValue().toString()
+                txtUsername.text = result
             }
-        })*/
+        })
 
         var titleName = sharedPreferences.getString("Title", "Flip buy")
         title = titleName
