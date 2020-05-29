@@ -21,6 +21,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
+import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
@@ -31,6 +32,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_drawer_header.*
+import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -67,18 +69,18 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.closeDrawers()
         }
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("Users")
+        /*mDatabase = FirebaseDatabase.getInstance().getReference("Users")
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
 
             }
 
-            override fun onDataChange(dataSnapshot: DataSnapshot) {
-                val result = dataSnapshot.child("Name").getValue().toString()
-                txtUsername.text = result
+            //override fun onDataChange(dataSnapshot: DataSnapshot) {
+                //val result = dataSnapshot.child("Name").getValue().toString()
+                //txtUsername.text = result
             }
-        })
+        })*/
 
         var titleName = sharedPreferences.getString("Title", "Flip buy")
         title = titleName
@@ -91,6 +93,7 @@ class MainActivity : AppCompatActivity() {
             R.string.open_drawer,
             R.string.close_drawer
         )
+
         drawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
         navigationView.setNavigationItemSelectedListener {

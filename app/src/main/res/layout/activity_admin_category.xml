@@ -12,9 +12,10 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_marginTop="30dp"
-        android:text="Add new Product"
+        android:text="Choose the product you wish to add"
         android:textAlignment="center"
-        android:textSize="26sp"
+        android:textSize="20sp"
+        android:textColor="@color/OurColor2"
         android:textStyle="bold"/>
     <LinearLayout
         android:id="@+id/Linear1CategoryLayout"
@@ -29,13 +30,16 @@
             android:id="@+id/tShirts"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/shirts"
+            android:src="@drawable/polo"
+            android:padding="3dp"
+            android:background="@drawable/imagebox"
             android:layout_margin="10dp"/>
         <ImageView
-            android:id="@+id/Shoes"
+            android:id="@+id/frock"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/shoes"
+            android:src="@drawable/feminine"
+            android:background="@drawable/imagebox"
             android:layout_margin="10dp"/>
     </LinearLayout>
     <LinearLayout
@@ -48,19 +52,21 @@
         android:layout_marginTop="45dp"
         android:layout_below="@+id/Linear1CategoryLayout">
         <ImageView
-            android:id="@+id/Bags"
+            android:id="@+id/shoes"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/bag" />
+            android:src="@drawable/sport"
+            android:background="@drawable/imagebox"
+            android:layout_marginLeft="10dp"
+            android:padding="2dp"/>
         <ImageView
-            android:id="@+id/accessories"
+            android:id="@+id/heels"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/accessories"
-            android:layout_margin="10dp"/>
-
-
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/imagebox"
+            android:src="@drawable/highheel"
+            android:padding="5dp"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -72,17 +78,50 @@
         android:layout_marginTop="45dp"
         android:layout_below="@+id/Linear2CategoryLayout">
         <ImageView
-            android:id="@+id/toys"
+            android:id="@+id/Bags"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/toys"
-            android:layout_margin="10dp"/>
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/imagebox"
+            android:layout_marginRight="20dp"
+            android:padding="3dp"
+            android:src="@drawable/bag1" />
         <ImageView
-            android:id="@+id/cutlery"
+            android:id="@+id/wallets"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/cutlery" />
-    </LinearLayout>
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/imagebox"
+            android:src="@drawable/wallet1"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"/>
 
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Linear4CategoryLayout"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="45dp"
+        android:layout_below="@+id/Linear3CategoryLayout">
+        <ImageView
+            android:id="@+id/watch"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/watch"
+            android:background="@drawable/imagebox"
+            android:padding="5dp"
+            android:layout_marginLeft="10dp"/>
+        <ImageView
+            android:id="@+id/necklace"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/imagebox"
+            android:layout_marginLeft="30dp"
+            android:padding="5dp"
+            android:src="@drawable/necklace2" />
+    </LinearLayout>
 </RelativeLayout>

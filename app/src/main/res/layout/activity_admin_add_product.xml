@@ -1,9 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/OurColor4"
     tools:context=".activity.AdminAddProductActivity">
+    <ImageView
+        android:id="@+id/imgProduct"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:src="@drawable/camera1"
+        android:cropToPadding="false"
+        android:scaleType="centerInside"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+    <EditText
+        android:id="@+id/etProductName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Product name..."
+        android:padding="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/imgProduct"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/edit_text_style2" />
+    <EditText
+        android:id="@+id/etProductDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Product Description"
+        android:padding="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/etProductName"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/edit_text_style2" />
+    <EditText
+        android:id="@+id/etPrice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Product Price"
+        android:padding="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/etProductDescription"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/edit_text_style2" />
+    <Button
+        android:id="@+id/btnAddProduct"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Product"
+        android:padding="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/etPrice"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/edit_text_style2"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/OurColor2" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</RelativeLayout>

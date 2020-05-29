@@ -25,7 +25,8 @@
                 android:background="@color/colorPrimary"
                 android:minHeight="?attr/actionBarSize"
                 android:theme="@style/ThemeOverlay.AppCompat.Dark"
-                app:layout_scrollFlags="scroll|enterAlways" />
+                app:layout_scrollFlags="scroll|enterAlways"/>
+
 
         </com.google.android.material.appbar.AppBarLayout>
 
@@ -43,7 +44,8 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:headerLayout="@layout/activity_drawer_header"
-        app:menu="@menu/menu_drawer" />
+        app:menu="@menu/menu_drawer"
+        />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>

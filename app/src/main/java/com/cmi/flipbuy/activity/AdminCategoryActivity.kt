@@ -9,18 +9,30 @@ import com.cmi.flipbuy.R
 class AdminCategoryActivity : AppCompatActivity() {
     lateinit var menDress:ImageView
     lateinit var womenDress:ImageView
-    lateinit var shoes:ImageView
+    lateinit var sneakers:ImageView
     lateinit var heels:ImageView
-    lateinit var ladiesBags:ImageView
-    lateinit var menBags:ImageView
+    lateinit var Bags:ImageView
+    lateinit var wallets:ImageView
     lateinit var accessories:ImageView
     lateinit var watches:ImageView
-    lateinit var cutlery:ImageView
-    lateinit var toys:ImageView
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_admin_category)
+
+        menDress=findViewById(R.id.tShirts)
+        womenDress=findViewById(R.id.frock)
+
+        sneakers=findViewById(R.id.shoes)
+        heels=findViewById(R.id.heels)
+
+        Bags=findViewById(R.id.Bags)
+        wallets=findViewById(R.id.wallets)
+
+        accessories=findViewById(R.id.necklace)
+        watches=findViewById(R.id.watch)
+
         menDress.setOnClickListener {
             val intent= Intent(this@AdminCategoryActivity,AdminAddProductActivity::class.java)
             intent.putExtra("category","tshirts")
@@ -28,18 +40,39 @@ class AdminCategoryActivity : AppCompatActivity() {
         }
         womenDress.setOnClickListener {
             val intent= Intent(this@AdminCategoryActivity,AdminAddProductActivity::class.java)
-            intent.putExtra("category","tshirts")
+            intent.putExtra("category","womenDress")
             startActivity(intent)
         }
-        menDress.setOnClickListener {
+        Bags.setOnClickListener {
             val intent= Intent(this@AdminCategoryActivity,AdminAddProductActivity::class.java)
-            intent.putExtra("category","tshirts")
+            intent.putExtra("category","bags")
             startActivity(intent)
         }
-        menDress.setOnClickListener {
+        wallets.setOnClickListener {
             val intent= Intent(this@AdminCategoryActivity,AdminAddProductActivity::class.java)
-            intent.putExtra("category","tshirts")
+            intent.putExtra("category","wallets")
             startActivity(intent)
         }
+        sneakers.setOnClickListener {
+            val intent= Intent(this@AdminCategoryActivity,AdminAddProductActivity::class.java)
+            intent.putExtra("category","sneakers")
+            startActivity(intent)
+        }
+        heels.setOnClickListener {
+            val intent= Intent(this@AdminCategoryActivity,AdminAddProductActivity::class.java)
+            intent.putExtra("category","heels")
+            startActivity(intent)
+        }
+        watches.setOnClickListener {
+            val intent= Intent(this@AdminCategoryActivity,AdminAddProductActivity::class.java)
+            intent.putExtra("category","watches")
+            startActivity(intent)
+        }
+        accessories.setOnClickListener {
+            val intent= Intent(this@AdminCategoryActivity,AdminAddProductActivity::class.java)
+            intent.putExtra("category","accessories")
+            startActivity(intent)
+        }
+
     }
 }

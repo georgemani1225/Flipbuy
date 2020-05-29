@@ -6,6 +6,13 @@
         <item name="colorPrimary">@color/OurColor2</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/OurColor2</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+
+    </style>
+
+    <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/OurColor2</item>
     </style>
 
     <style name="welcome_bac">
@@ -22,7 +29,7 @@
 
 
     <style name="ToolBarThemeRegister" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/OurColor2</item>
+        <item name="colorPrimary">#ffffff</item>
         <item name="colorPrimaryDark">#005059</item>
         <item name="titleTextColor">@color/OurColor4</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
@@ -31,6 +38,8 @@
 
     <style name="ToolBar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">18sp</item>
+
     </style>
+
 
 </resources>
