@@ -4,27 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    tools:context="activity.SplashActivity"
-    android:background="@color/OurColor3">
-    <ImageView
-    android:id="@+id/imgsplashLogo"
-    android:layout_width="120dp"
-    android:layout_height="120dp"
-    android:src="@drawable/shopping1"
-    android:layout_centerHorizontal="true"
-    android:layout_centerVertical="true" />
+    tools:context="activity.SplashActivity">
 
-    <TextView
-        android:id="@+id/txtsplashtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/architects_daughter"
-        android:text="@string/flip_buy"
-        android:textColor="#ffffff"
-        android:textSize="36sp"
-        android:padding="10dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"/>
+
+    <ImageView
+        android:id="@+id/imgsplashLogo"
+        android:layout_width="150dp"
+        android:layout_height="94dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_splash_image" />
 
 
 </RelativeLayout>

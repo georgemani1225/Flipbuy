@@ -63,9 +63,8 @@ class MainActivity : AppCompatActivity() {
 
         imgProfileHeader.setOnClickListener {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.navigationView, AccountFragment())
+                .replace(R.id.frameLayout, AccountFragment())
                 .commit()
-            supportActionBar?.title = "Your Account"
             drawerLayout.closeDrawers()
         }
 
@@ -201,7 +200,6 @@ class MainActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frameLayout, fragment)
         transaction.commit()
-        supportActionBar?.title = "Flip Buy"
         navigationView.setCheckedItem(R.id.menu_dashboard)
     }
 
