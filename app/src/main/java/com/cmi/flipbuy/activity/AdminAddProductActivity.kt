@@ -27,6 +27,8 @@ import java.util.*
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import com.google.android.gms.tasks.Continuation
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.ktx.Firebase
 import java.util.Calendar.getInstance
 
 class AdminAddProductActivity : AppCompatActivity() {
@@ -99,7 +101,7 @@ class AdminAddProductActivity : AppCompatActivity() {
     }
 
     private fun addUploadRecordToDb(uri: String){
-        val db = FirebaseStorage.getInstance()
+        val db = FirebaseFirestore.getInstance()
 
         val data = HashMap<String, Any>()
         data["imageUrl"] = uri
