@@ -47,12 +47,12 @@ class LoginActivity : AppCompatActivity() {
     private fun forgotPassword() {
         val emailfp = etLoginMailid.text.toString()
         if (emailfp.isEmpty()) {
-            Toast.makeText(this, "Please enter mail id", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Please enter mail id", Toast.LENGTH_SHORT).show()
         } else {
             FirebaseAuth.getInstance().sendPasswordResetEmail(emailfp)
                 .addOnCompleteListener { task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(this, "Password reset mail sent", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Password reset mail sent", Toast.LENGTH_SHORT).show()
                     }
                 }
         }
@@ -63,9 +63,9 @@ class LoginActivity : AppCompatActivity() {
         val email = etLoginMailid.text.toString()
         val password = etLoginPassword.text.toString()
         if (email == "") {
-            Toast.makeText(this, "Please enter mail id", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Please enter mail id", Toast.LENGTH_SHORT).show()
         } else if (password == "") {
-            Toast.makeText(this, "Please enter password", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show()
         } else {
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener {
@@ -74,13 +74,13 @@ class LoginActivity : AppCompatActivity() {
                         val intent = Intent(this, MainActivity::class.java)
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                         startActivity(intent)
-                        Toast.makeText(this, "Successfully Logged In", Toast.LENGTH_LONG)
+                        Toast.makeText(this, "Successfully Logged In", Toast.LENGTH_SHORT)
                             .show()
                         finish()
                     }
                 }
                 .addOnFailureListener {
-                    Toast.makeText(this, "Error message:${it.message}", Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Error message:${it.message}", Toast.LENGTH_SHORT).show()
                 }
         }
     }
