@@ -31,9 +31,7 @@ import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import androidx.core.provider.FontsContractCompat.FontRequestCallback.RESULT_OK as RESULT_OK
 
-/**
- * A simple [Fragment] subclass.
- */
+
 class AccountFragment : Fragment() {
 
     val phoneNumber = "0011445588"
