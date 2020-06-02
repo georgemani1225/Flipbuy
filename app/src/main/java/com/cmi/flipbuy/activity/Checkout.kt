@@ -1,7 +1,8 @@
-package com.cmi.flipbuy
+package com.cmi.flipbuy.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.cmi.flipbuy.R
 
 class Checkout : AppCompatActivity() {
 

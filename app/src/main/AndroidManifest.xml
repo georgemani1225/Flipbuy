@@ -13,7 +13,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Checkout"></activity>
+        <activity android:name=".activity.Checkout"></activity>
         <activity android:name=".activity.DrawerHeader" />
         <activity android:name=".activity.AdminCategoryActivity" />
         <activity android:name=".activity.AdminAddProductActivity" />
