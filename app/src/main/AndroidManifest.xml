@@ -21,11 +21,11 @@
             android:name="activity.RegisterActivity"
             android:parentActivityName="activity.LoginActivity"
             android:theme="@style/ToolBarThemeRegister"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="fullSensor"/>
         <activity
             android:name="activity.SplashActivity"
             android:noHistory="true"
-            android:screenOrientation="portrait">
+            android:screenOrientation="fullSensor">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
