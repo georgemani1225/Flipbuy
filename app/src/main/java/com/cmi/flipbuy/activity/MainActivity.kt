@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.closeDrawers()
         }
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("Users")
+        /*mDatabase = FirebaseDatabase.getInstance().getReference("Users")
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -79,7 +79,7 @@ class MainActivity : AppCompatActivity() {
                 val result = dataSnapshot.child("Name").getValue().toString()
                 txtUsername.text = result
             }
-        })
+        })*/
 
         var titleName = sharedPreferences.getString("Title", "Flip buy")
         title = titleName
