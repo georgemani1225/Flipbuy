@@ -22,11 +22,12 @@ import androidx.fragment.app.FragmentActivity
 import com.cmi.flipbuy.R
 import com.google.android.gms.common.api.ResultTransform
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_drawer_header.*
 import kotlinx.android.synthetic.main.fragment_account.*
 import kotlinx.android.synthetic.main.fragment_account.view.*
+import org.w3c.dom.Text
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
 import androidx.core.provider.FontsContractCompat.FontRequestCallback.RESULT_OK as RESULT_OK
@@ -35,35 +36,62 @@ import androidx.core.provider.FontsContractCompat.FontRequestCallback.RESULT_OK 
 class AccountFragment : Fragment() {
 
     val phoneNumber = "0011445588"
-    val REQUEST_PHONE_CALL= 1
+    val REQUEST_PHONE_CALL = 1
+    lateinit var mDatabase: DatabaseReference
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view: View = inflater!!.inflate(R.layout.fragment_account, container, false)
 
-        view.btnCall.setOnClickListener{
-            if(getContext()?.let { it1 -> ActivityCompat.checkSelfPermission(it1,Manifest.permission.CALL_PHONE) } !=PackageManager.PERMISSION_GRANTED){
-                getActivity()?.let { it1 -> ActivityCompat.requestPermissions(it1,arrayOf(Manifest.permission.CALL_PHONE),REQUEST_PHONE_CALL) }
-            }else {
+        view.btnCall.setOnClickListener {
+            if (getContext()?.let { it1 ->
+                    ActivityCompat.checkSelfPermission(
+                        it1,
+                        Manifest.permission.CALL_PHONE
+                    )
+                } != PackageManager.PERMISSION_GRANTED) {
+                getActivity()?.let { it1 ->
+                    ActivityCompat.requestPermissions(
+                        it1,
+                        arrayOf(Manifest.permission.CALL_PHONE),
+                        REQUEST_PHONE_CALL
+                    )
+                }
+            } else {
                 startCall()
             }
-
-
         }
-        return view
+        mDatabase = FirebaseDatabase.getInstance().getReference("Users")
+            .child(FirebaseAuth.getInstance().currentUser!!.uid)
+        mDatabase.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
 
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                val resultName = dataSnapshot.child("Name").getValue().toString()
+                txtAccountName.text = "Name:\n" + resultName
+                UserNameProfile.text = resultName
+            }
+        })
+        return view
     }
-    private fun startCall(){
-        val callIntent= Intent(Intent.ACTION_CALL)
-        callIntent.data= Uri.parse("tel:"+phoneNumber)
+
+    private fun startCall() {
+        val callIntent = Intent(Intent.ACTION_CALL)
+        callIntent.data = Uri.parse("tel:" + phoneNumber)
         startActivity(callIntent)
 
     }
 
 
-   override fun onRequestPermissionsResult(requestCode: Int,permissions: Array<out String>,grantResults: IntArray){
-            if (requestCode==REQUEST_PHONE_CALL)startCall()
-        }
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<out String>,
+        grantResults: IntArray
+    ) {
+        if (requestCode == REQUEST_PHONE_CALL) startCall()
+    }
 }
 
