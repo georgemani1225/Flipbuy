@@ -10,7 +10,7 @@
 
     <style name="DrawerArrowStyle" parent="@style/Widget.AppCompat.DrawerArrowToggle">
         <item name="spinBars">true</item>
-        <item name="color">@color/OurColor1</item>
+        <item name="color">@color/OurColor2</item>
     </style>
 
     <style name="welcome_bac">

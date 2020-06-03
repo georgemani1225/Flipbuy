@@ -188,7 +188,7 @@ class MainActivity : AppCompatActivity() {
 
     fun setUpToolBar() {
         setSupportActionBar(ToolBar)
-        supportActionBar?.title = "Flip buy"
+        supportActionBar?.title = "FlipBuy"
         supportActionBar?.setHomeButtonEnabled(true)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }

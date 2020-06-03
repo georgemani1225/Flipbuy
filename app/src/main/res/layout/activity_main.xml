@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="?attr/actionBarSize"
-                app:titleTextColor="@android:color/transparent"
+                app:titleTextColor="@color/OurColor2"
                 app:layout_scrollFlags="scroll|enterAlways" />
 
             <ImageView
@@ -75,6 +75,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:itemTextColor="@color/OurColor2"
+        app:itemIconTint="@color/OurColor2"
         app:headerLayout="@layout/activity_drawer_header"
         app:menu="@menu/menu_drawer" />
 

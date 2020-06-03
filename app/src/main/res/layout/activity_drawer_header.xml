@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
         android:gravity="center"
+        android:textColor="#ffffff"
         android:paddingTop="8dp"
         android:textAppearance="@style/TextAppearance.AppCompat"
         android:textSize="20sp"
