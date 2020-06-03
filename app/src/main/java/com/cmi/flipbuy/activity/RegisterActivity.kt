@@ -63,7 +63,7 @@ class RegisterActivity : AppCompatActivity() {
                     userHashMap["Email"] = email
                     userHashMap["Mobile Number"] = mobileno
                     userHashMap["Delivery Address"] = address
-                    userHashMap["Profile Pic"] = "https://firebasestorage.googleapis.com/v0/b/flipbuy-31c55.appspot.com/o/UsersImages%2Fprofile.png?alt=media&token=f9af2b51-ae2f-4e31-bb7b-9fa7c9abab4f"
+                    userHashMap["Profile Pic"] = ""
                     mDatabase.updateChildren(userHashMap)
                 } else {
                     Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()

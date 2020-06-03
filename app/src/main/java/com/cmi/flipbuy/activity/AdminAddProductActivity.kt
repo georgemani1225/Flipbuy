@@ -1,6 +1,7 @@
 package com.cmi.flipbuy.activity
 
 import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -48,22 +49,25 @@ class AdminAddProductActivity : AppCompatActivity() {
                 ImageProduct.setImageBitmap(bitmap)
             } catch (e: IOException) {
                 e.printStackTrace()
-                }
+            }
         }
     }
 
     private fun uploadFile() {
         if (filePath != null) {
+            val progressDialog = ProgressDialog(this)
+            progressDialog.setTitle("Uploading...")
+            progressDialog.setMessage("Please wait..")
+            progressDialog.show()
             val imageRef = storageReference!!.child("ProductImages/" + UUID.randomUUID().toString())
             imageRef.putFile(filePath!!)
                 .addOnSuccessListener {
+                    progressDialog.dismiss()
                     Toast.makeText(this, "Product added Successfully", Toast.LENGTH_LONG).show()
-
                     imageRef.downloadUrl.addOnSuccessListener {
-
-                        Log.d("AdminAddProductActivity","File Location:$it")
+                        Log.d("AdminAddProductActivity", "File Location:$it")
                         saveUserToFirebaseDatabase(it.toString())
-                    finish()
+                        finish()
 
                     }
                 }
@@ -115,17 +119,24 @@ class AdminAddProductActivity : AppCompatActivity() {
         }
     }
 
-    private fun saveUserToFirebaseDatabase(productImage: String){
-        val uid=FirebaseAuth.getInstance().uid?:""
-        val ref=FirebaseDatabase.getInstance().getReference("/ProductInfo/$uid")
-        val product=ProductInfo(uid,ProductName,productImage,Description,ProductPrice)
+    private fun saveUserToFirebaseDatabase(productImage: String) {
+        val uid = FirebaseAuth.getInstance().uid ?: ""
+        val ref = FirebaseDatabase.getInstance().getReference("/ProductInfo/$uid")
+        val product = ProductInfo(uid, ProductName, productImage, Description, ProductPrice)
         ref.setValue(product)
             .addOnSuccessListener {
-                Log.d("AdminAddProductActivity","Yahoooooooooooo")
+                Log.d("AdminAddProductActivity", "Yahoooooooooooo")
             }
     }
 
 }
-class ProductInfo(val uid:String,val Name:String,val productImage:String,val Descrip:String,val Price:String){
+
+class ProductInfo(
+    val uid: String,
+    val Name: String,
+    val productImage: String,
+    val Descrip: String,
+    val Price: String
+) {
 
 }
