@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CustomerServiceFragment">
+
+    <RelativeLayout
+        android:id="@+id/topRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/txtCustomerSuprt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:paddingStart="100dp"
+            android:padding="10dp"
+            android:text="Customer Support"
+            android:layout_marginTop="100dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="20sp" />
+        <Button
+            android:id="@+id/btnCall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0011445588"
+            android:background="@drawable/edit_text_style3"
+            android:drawableStart="@drawable/ic_call_black_24dp"
+            android:layout_below="@+id/txtCustomerSuprt"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            android:paddingStart="20dp"
+            android:textColor="@color/colorPrimary" />
+        <Button
+            android:id="@+id/btnMail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edit_text_style3"
+            android:drawableStart="@drawable/ic_email_black_24dp"
+            android:layout_below="@id/btnCall"
+            android:layout_marginRight="40dp"
+            android:layout_marginLeft="40dp"
+            android:paddingStart="20dp"
+            android:text="support@flipbuy.com"
+            android:textColor="@color/colorPrimary"/>
+
+
+
+
+    </RelativeLayout>
+
+</FrameLayout>

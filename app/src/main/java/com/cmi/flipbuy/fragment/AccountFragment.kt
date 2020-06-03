@@ -34,36 +34,20 @@ import androidx.core.provider.FontsContractCompat.FontRequestCallback.RESULT_OK 
 
 class AccountFragment : Fragment() {
 
-    val phoneNumber = "0011445588"
-    val REQUEST_PHONE_CALL= 1
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         val view: View = inflater!!.inflate(R.layout.fragment_account, container, false)
 
-        view.btnCall.setOnClickListener{
-            if(getContext()?.let { it1 -> ActivityCompat.checkSelfPermission(it1,Manifest.permission.CALL_PHONE) } !=PackageManager.PERMISSION_GRANTED){
-                getActivity()?.let { it1 -> ActivityCompat.requestPermissions(it1,arrayOf(Manifest.permission.CALL_PHONE),REQUEST_PHONE_CALL) }
-            }else {
-                startCall()
-            }
 
-
-        }
         return view
 
     }
-    private fun startCall(){
-        val callIntent= Intent(Intent.ACTION_CALL)
-        callIntent.data= Uri.parse("tel:"+phoneNumber)
-        startActivity(callIntent)
-
-    }
 
 
-   override fun onRequestPermissionsResult(requestCode: Int,permissions: Array<out String>,grantResults: IntArray){
-            if (requestCode==REQUEST_PHONE_CALL)startCall()
-        }
+
+
 }
 

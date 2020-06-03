@@ -156,6 +156,13 @@ class MainActivity : AppCompatActivity() {
                     drawerLayout.closeDrawers()
 
                 }
+                R.id.customer_service -> {
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frameLayout, CustomerServiceFragment())
+                        .commit()
+                    supportActionBar?.title = "Customer Service"
+                    drawerLayout.closeDrawers()
+                }
 
                 R.id.menu_signout -> {
                     val builder = AlertDialog.Builder(this)
