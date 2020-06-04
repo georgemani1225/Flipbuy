@@ -12,23 +12,24 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cmi.flipbuy.R
 import com.cmi.flipbuy.adapter.DashboardRecyclerAdapter
-import com.cmi.flipbuy.model.Product
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
-import com.xwray.groupie.GroupAdapter
-import com.xwray.groupie.ViewHolder
+import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.recycler_dashboard_single_row.*
 
 /**
  * A simple [Fragment] subclass.
  */
 class DashboardFragment : Fragment() {
-    lateinit var recyclerDashboard:RecyclerView
-    lateinit var LayoutManager:RecyclerView.LayoutManager
-   /* val productList= arrayListOf<Product>(
-        Product("Shirts","Blue","999/-","4.5","", R.drawable.polo),
-        Product("Frocks","Red","500/-","4","", R.drawable.feminine))
+    lateinit var recyclerDashboard: RecyclerView
+    lateinit var LayoutManager: RecyclerView.LayoutManager
+    var products=ArrayList<String>()
+
+   /*val productList = arrayListOf<products>(
+        Product("Shirts", "Blue", "999/-", "4.5", "", R.id.imgProductImage),
+        Product("Frocks", "Red", "500/-", "4", "", R.id.imgProductImage)
+    )*/
     lateinit var recyclerAdapter: DashboardRecyclerAdapter
-
-
 
 
     override fun onCreateView(
@@ -36,36 +37,50 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val view= inflater.inflate(R.layout.fragment_dashboard, container, false)
-        recyclerDashboard= view.findViewById(R.id.recyclerDashboard)
-        LayoutManager =LinearLayoutManager(activity)
-        recyclerAdapter=DashboardRecyclerAdapter(activity as Context,productList)
-        recyclerDashboard.adapter=recyclerAdapter
-        recyclerDashboard.layoutManager=LayoutManager
-        fetchProducts()
+        val view = inflater.inflate(R.layout.fragment_dashboard, container, false)
+        recyclerDashboard = view.findViewById(R.id.recyclerDashboard)
+        LayoutManager = LinearLayoutManager(activity)
+        recyclerAdapter = DashboardRecyclerAdapter(activity as Context,products)
+        recyclerDashboard.adapter = recyclerAdapter
+        recyclerDashboard.layoutManager = LayoutManager
 
 
-        return view
+        val ref: DatabaseReference = FirebaseDatabase.getInstance().getReference("ProductInfo")
+            .child(FirebaseAuth.getInstance().currentUser!!.uid)
 
-    }
-    private fun fetchProducts(){
-        val ref=FirebaseDatabase.getInstance().getReference("ProductInfo")
-        ref.addListenerForSingleValueEvent(object :ValueEventListener{
+        ref.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
                 TODO("Not yet implemented")
             }
 
-            override fun onDataChange(p0: DataSnapshot) {
-                //val adapter:GroupAdapter<ViewHolder>()
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                dataSnapshot.children.forEach {
+                    //val name:DatabaseReference=ref.child("name")
 
-                p0.children.forEach {
-                    Log.d("DashboardFragment",it.toString())
-                    val Pdt=it.getValue(Product::class.java)
+                    val name:String? = dataSnapshot.child("name").getValue().toString()
+                    txtNameOfProduct.text = name
+                    val PdtName:String=txtNameOfProduct.toString()
+                    val descrip:String?=dataSnapshot.child("descrip").getValue().toString()
+                    txtProduct_Description.text=descrip
+                    val PdtDescrip:String=txtProduct_Description.toString()
+                    val price:String?=dataSnapshot.child("price").getValue().toString()
+                    txtPrice.text=price
+                    val PdtPrice:String=txtPrice.toString()
+                    val productImage:String?=dataSnapshot.child("productImage").getValue().toString()
+                    Picasso.get().load(productImage).error(R.drawable.polo).into(imgProductImage)
+                    //val PdtImage:String
+                    products= arrayListOf<String>(
+                        PdtName,PdtDescrip,PdtPrice//,productImage
+                    )
 
+                    Log.d("DashboardFragment", it.toString())
 
                 }
             }
         })
-    }*/
 
+        return view
+
+    }
 }
+

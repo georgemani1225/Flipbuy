@@ -20,7 +20,6 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentActivity
 
 import com.cmi.flipbuy.R
-import com.cmi.flipbuy.activity.EditProfileActivity
 import com.google.android.gms.common.api.ResultTransform
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -50,15 +49,13 @@ class AccountFragment : Fragment() {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val nameResult = dataSnapshot.child("Name").getValue().toString()
+                val emailResult = dataSnapshot.child("Email").getValue().toString()
                 val mobileResult = dataSnapshot.child("MobileNumber").getValue().toString()
                 val dResult = dataSnapshot.child("DeliveryAddress").getValue().toString()
                 UserNameProfile.text = nameResult
-                txtPhoneNumber.text = "+91" + " " + mobileResult
-                txtDelAddress.text = dResult
 
             }
         })
-
         return view
     }
 
