@@ -17,4 +17,3 @@ class CartRecyclerAdapter: Fragment() {
     }
 
 }
-
