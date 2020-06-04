@@ -17,11 +17,12 @@
         android:supportsRtl="true"
 
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.Checkout"/>
+        <activity android:name=".activity.Checkout" />
         <activity android:name=".activity.DrawerHeader" />
         <activity android:name=".activity.AdminCategoryActivity" />
-        <activity android:name=".activity.AdminAddProductActivity"
-            android:hardwareAccelerated="false"/>
+        <activity
+            android:name=".activity.AdminAddProductActivity"
+            android:hardwareAccelerated="false" />
 
         <activity
             android:name="activity.RegisterActivity"
@@ -45,6 +46,7 @@
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait" />
+        <activity android:name=".activity.EditProfileActivity" />
 
         <meta-data
             android:name="preloaded_fonts"
