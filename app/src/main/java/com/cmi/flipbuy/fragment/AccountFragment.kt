@@ -20,7 +20,6 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentActivity
 
 import com.cmi.flipbuy.R
-import com.cmi.flipbuy.activity.EditProfileActivity
 import com.google.android.gms.common.api.ResultTransform
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -56,9 +55,9 @@ class AccountFragment : Fragment() {
                 txtPhoneNumber.text = "+91" + " " + mobileResult
                 txtDelAddress.text = dResult
 
+
             }
         })
-
         return view
     }
 

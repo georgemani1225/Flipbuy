@@ -1,213 +1,190 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".fragment.AccountFragment"
     android:background="#ffffff"
-    tools:context=".fragment.AccountFragment">
-
-    <RelativeLayout
-        android:id="@+id/topRelativeLayout"
+    >
+    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="15dp"
-        android:layout_marginVertical="15dp">
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/ToolBAR"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/topRelativeLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginVertical="15dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:id="@+id/imgProfileFrag"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="50dp"
-            android:clickable="true"
-            android:focusable="true"
-            android:src="@drawable/profile"
-            app:civ_border_color="#08808E"
-            app:civ_border_width="3dp" />
+                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/imgProfileFrag"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="50dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:src="@drawable/profile"
+                    app:civ_border_color="#08808E"
+                    app:civ_border_width="3dp" />
 
-        <Button
-            android:id="@+id/btnEditProfile"
-            android:layout_width="120dp"
-            android:layout_height="40dp"
-            android:layout_below="@+id/UserNameProfile"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/edit_profile_button"
-            android:elevation="10dp"
-            android:text="Edit Profile"
-            android:textAllCaps="false"
-            android:textColor="#08808E"
-            android:textSize="16sp" />
+            <Button
+                    android:id="@+id/btnEditProfile"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_below="@+id/UserNameProfile"
+                    android:layout_centerHorizontal="true"
+                    android:background="#ffffff"
+                    android:text="Edit Profile"
+                    android:textAllCaps="false"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
 
-        <TextView
-            android:id="@+id/UserNameProfile"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/imgProfileFrag"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_medium"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/UserNameProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/imgProfileFrag"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/poppins_medium"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-        <View
-            android:id="@+id/rectangle_1"
-            android:layout_width="306dp"
-            android:layout_height="85dp"
-            android:layout_below="@id/btnEditProfile"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="40dp"
-            android:background="@drawable/rectangle_1" />
+                <View
+                    android:id="@+id/rectangle_1"
+                    android:layout_width="306dp"
+                    android:layout_height="85dp"
+                    android:layout_below="@id/btnEditProfile"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="60dp"
+                    android:background="@drawable/rectangle_1" />
 
-        <TextView
-            android:id="@+id/txtMyOrders"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_medium"
-            android:layout_below="@id/btnEditProfile"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="55dp"
-            android:text="My Orders"
-            android:textColor="#08808E"
-            android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/txtMyOrders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btnEditProfile"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="65dp"
+                    android:text="My Orders"
+                    android:textColor="#08808E"
+                    android:textSize="13sp" />
 
-        <TextView
-            android:id="@+id/txtViewOrders"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btnEditProfile"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="90dp"
-            android:layout_marginRight="60dp"
-            android:text="View all orders"
-            android:fontFamily="@font/poppins_medium"
-            android:textColor="#7AC9D0"
-            android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/txtViewOrders"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/btnEditProfile"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="110dp"
+                    android:layout_marginRight="60dp"
+                    android:text="View all orders"
+                    android:textColor="#7AC9D0"
+                    android:textSize="13sp" />
 
-        <View
-            android:id="@+id/rectangle_2"
-            android:layout_width="306dp"
-            android:layout_height="85dp"
-            android:layout_below="@id/rectangle_1"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rectangle_1" />
+                <View
+                    android:id="@+id/rectangle_2"
+                    android:layout_width="306dp"
+                    android:layout_height="85dp"
+                    android:layout_below="@id/rectangle_1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/rectangle_1" />
 
-        <TextView
-            android:id="@+id/txtPhoneN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtMyOrders"
-            android:layout_marginLeft="55dp"
-            android:fontFamily="@font/poppins_medium"
-            android:layout_marginTop="80dp"
-            android:text="My Phone Number"
-            android:textColor="#08808E"
-            android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/txtPhoneN"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtMyOrders"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="85dp"
+                    android:text="My Phone Number"
+                    android:textColor="#08808E"
+                    android:textSize="13sp" />
 
-        <TextView
-            android:id="@+id/txtPhoneNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtPhoneN"
-            android:layout_marginStart="55dp"
-            android:fontFamily="@font/poppins_medium"
-            android:layout_marginTop="8dp"
-            android:textColor="#08808E"
-            android:textSize="10sp" />
+                <TextView
+                    android:id="@+id/txtPhoneNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtPhoneN"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="15dp"
+                    android:textColor="#08808E"
+                    android:textSize="13sp" />
 
-        <TextView
-            android:id="@+id/txtEdit_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtViewOrders"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="80dp"
-            android:layout_marginRight="70dp"
-            android:text="Edit"
-            android:fontFamily="@font/poppins_medium"
-            android:textColor="#7AC9D0"
-            android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/txtEdit_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtViewOrders"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="90dp"
+                    android:layout_marginRight="70dp"
+                    android:textColor="#7AC9D0"
+                    android:textSize="13sp" />
 
-        <View
-            android:id="@+id/rectangle_3"
-            android:layout_width="306dp"
-            android:layout_height="85dp"
-            android:layout_below="@id/rectangle_2"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rectangle_1" />
+                <View
+                    android:id="@+id/rectangle_3"
+                    android:layout_width="306dp"
+                    android:layout_height="85dp"
+                    android:layout_below="@id/rectangle_2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/rectangle_1" />
 
-        <TextView
-            android:id="@+id/txtAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtPhoneN"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="80dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="My Address"
-            android:textColor="#08808E"
-            android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/txtAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtPhoneN"
+                    android:layout_marginLeft="55dp"
+                    android:layout_marginTop="85dp"
+                    android:text="My Address"
+                    android:textColor="#08808E"
+                    android:textSize="13sp" />
 
-        <TextView
-            android:id="@+id/txtDelAddress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtAddress"
-            android:layout_marginStart="55dp"
-            android:fontFamily="@font/poppins_medium"
-            android:textColor="#08808E"
-            android:textSize="10sp" />
+                <TextView
+                    android:id="@+id/txtDelAddress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtAddress"
+                    android:layout_marginLeft="55dp"
+                    android:textColor="#08808E"
+                    android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/txtEdit_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtEdit_1"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="80dp"
-            android:layout_marginRight="70dp"
-            android:text="Edit"
-            android:fontFamily="@font/poppins_medium"
-            android:textColor="#7AC9D0"
-            android:textSize="13sp" />
+                <TextView
+                    android:id="@+id/txtEdit_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/txtEdit_1"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="90dp"
+                    android:layout_marginRight="70dp"
+                    android:textColor="#7AC9D0"
+                    android:textSize="13sp" />
 
-        <View
-            android:id="@+id/rectangle_4"
-            android:layout_width="306dp"
-            android:layout_height="85dp"
-            android:layout_below="@id/rectangle_3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/rectangle_1" />
 
-        <TextView
-            android:id="@+id/txtCards"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtAddress"
-            android:layout_marginLeft="55dp"
-            android:layout_marginTop="80dp"
-            android:text="My Cards"
-            android:fontFamily="@font/poppins_medium"
-            android:textColor="#08808E"
-            android:textSize="13sp" />
+            </RelativeLayout>
 
-        <TextView
-            android:id="@+id/txtViewCards"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txtEdit_2"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="80dp"
-            android:fontFamily="@font/poppins_medium"
-            android:layout_marginRight="60dp"
-            android:text="View saved cards"
-            android:textColor="#7AC9D0"
-            android:textSize="13sp" />
 
-    </RelativeLayout>
-</ScrollView>
+        </LinearLayout>
+
+    </ScrollView>
+</RelativeLayout>

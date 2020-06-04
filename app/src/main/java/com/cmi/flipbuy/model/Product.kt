@@ -1,4 +1,17 @@
 package com.cmi.flipbuy.model
 
-data class Product(val ProductName:String,val ProductDescrip:String,val productPrice:String,val productRating:String,val productImage:Int) {
+import com.cmi.flipbuy.fragment.DashboardFragment
+
+data class Product(
+    var ProductName: String,
+    var ProductDescrip: String,
+    var productPrice: String,
+    var productRating: String,
+    var uid: String,
+    var productImage: Int
+) {
+
+    constructor() : this("", "", "", "", "", 0)
+
+
 }

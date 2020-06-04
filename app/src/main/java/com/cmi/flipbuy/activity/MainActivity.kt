@@ -20,6 +20,8 @@ import com.cmi.flipbuy.PostsAdapter
 import com.google.android.material.navigation.NavigationView
 import com.cmi.flipbuy.R
 import com.cmi.flipbuy.fragment.*
+import com.firebase.ui.database.FirebaseRecyclerAdapter
+import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
@@ -186,6 +188,8 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+
     fun setUpToolBar() {
         setSupportActionBar(ToolBar)
         supportActionBar?.title = "FlipBuy"
@@ -207,6 +211,7 @@ class MainActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frameLayout, fragment)
         transaction.commit()
+        setUpToolBar()
         navigationView.setCheckedItem(R.id.menu_dashboard)
     }
 

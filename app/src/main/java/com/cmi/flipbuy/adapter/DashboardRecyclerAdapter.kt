@@ -8,11 +8,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.cmi.flipbuy.R
 import com.cmi.flipbuy.activity.ProductDetailsActivity
 import com.cmi.flipbuy.model.Product
+import com.squareup.picasso.Picasso
 
 class DashboardRecyclerAdapter(val context:Context, val itemList: ArrayList<Product>):RecyclerView.Adapter<DashboardRecyclerAdapter.DashboardViewHolder>() {
     class DashboardViewHolder(view:View):RecyclerView.ViewHolder(view){
@@ -33,11 +33,11 @@ class DashboardRecyclerAdapter(val context:Context, val itemList: ArrayList<Prod
     }
 
     override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) {
-        val product=itemList[position]
-        holder.textProduct_Name.text=product.ProductName
-        holder.textProduct_Details.text=product.ProductDescrip
+        val product = itemList[position]
+        holder.textProduct_Name.text= product.ProductName
+        holder.textProduct_Details.text= product.ProductDescrip
         holder.texProduct_Price.text=product.productPrice
-        holder.imgProductImage.setImageResource(product.productImage)
+        Picasso.get().load(product.productImage).error(R.drawable.polo).into(holder.imgProductImage)
         holder.ParentLayout.setOnClickListener {
             val intent=Intent(context,ProductDetailsActivity::class.java)
             context.startActivity(intent)
