@@ -4,19 +4,60 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.DashboardFragment">
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/productLists"
-        android:layout_below="@+id/SearchLayout">
-        <androidx.recyclerview.widget.RecyclerView
+
+
+        <RelativeLayout
+            android:id="@+id/SearchLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/recyclerDashboard"/>
+            android:layout_height="wrap_content">
 
-    </RelativeLayout>
+            <EditText
+                android:id="@+id/edtxtSearchBar"
+                android:layout_width="300dp"
+                android:layout_height="37dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginStart="31dp"
+                android:layout_marginTop="60dp"
+                android:background="@drawable/search_bar"
+                android:drawableStart="@drawable/ic_search_bar"
+                android:drawablePadding="20dp"
+                android:hint="@string/search"
+                android:padding="8dp"
+                android:textColorHint="#BBB9B9"
+                android:textSize="14sp" />
 
 
+            <View
+                android:id="@+id/offers"
+                android:layout_width="328dp"
+                android:layout_height="171dp"
+                android:layout_below="@+id/edtxtSearchBar"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="50dp"
+                android:background="@drawable/dashbord_offers" />
+
+            <TextView
+                android:id="@+id/today_s_bes"
+                android:layout_width="134dp"
+                android:layout_height="39dp"
+                android:layout_below="@+id/edtxtSearchBar"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="70dp"
+                android:layout_marginTop="120dp"
+                android:background="@drawable/ic_offers_card" />
+
+            <GridView
+                android:id="@+id/grid_view_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/offers"
+                android:columnWidth="150dp"
+                android:horizontalSpacing="15dp"
+                android:numColumns="auto_fit"
+                android:verticalSpacing="15dp"/>
+
+        </RelativeLayout>
 
 
 </FrameLayout>
