@@ -15,6 +15,8 @@ import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.cmi.flipbuy.PostsAdapter
 import com.google.android.material.navigation.NavigationView
 import com.cmi.flipbuy.R
 import com.cmi.flipbuy.fragment.*
@@ -22,6 +24,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_drawer_header.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -38,6 +41,12 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val posts:ArrayList<String> =ArrayList()
+        for (i in 1..100){
+            posts.add("Post # $1")
+        }
+        MainRecyclerView.layoutManager= LinearLayoutManager(this)
+        MainRecyclerView.adapter= PostsAdapter(posts)
         super.onCreate(savedInstanceState)
         sharedPreferences =
             getSharedPreferences(getString(R.string.preference_file_name), Context.MODE_PRIVATE)
@@ -56,7 +65,7 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.closeDrawers()
         }
 
-        mDatabase = FirebaseDatabase.getInstance().getReference("Users")
+        /**mDatabase = FirebaseDatabase.getInstance().getReference("Users")
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
         mDatabase.addValueEventListener(object : ValueEventListener {
             override fun onCancelled(p0: DatabaseError) {
@@ -71,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         displayProducts()
 
         var titleName = sharedPreferences.getString("Title", "Flip buy")
-        title = titleName
+        title = titleName*/
 
         openDashboard()
         setUpToolBar()
