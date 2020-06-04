@@ -1,12 +1,11 @@
-package com.cmi.flipbuy
+package com.cmi.flipbuy.adapter
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.RecyclerView
+import com.cmi.flipbuy.R
 
 class CartRecyclerAdapter: Fragment() {
     override fun onCreateView(

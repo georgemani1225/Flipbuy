@@ -1,24 +1,43 @@
 package com.cmi.flipbuy.fragment
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+
+import androidx.recyclerview.widget.RecyclerView
 import com.cmi.flipbuy.R
+import com.cmi.flipbuy.adapter.DashboardRecyclerAdapter
+import com.cmi.flipbuy.model.Product
 
 /**
  * A simple [Fragment] subclass.
  */
 class DashboardFragment : Fragment() {
+    lateinit var recyclerDashboard:RecyclerView
+    lateinit var LayoutManager:RecyclerView.LayoutManager
+    val productList= arrayListOf<Product>(
+        Product("Shirts","Blue","999/-","4.5",R.drawable.polo),
+        Product("Frocks","Red","500/-","4",R.drawable.feminine))
+    lateinit var recyclerAdapter: DashboardRecyclerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        val View= inflater.inflate(R.layout.fragment_dashboard, container, false)
-        return View
+        val view= inflater.inflate(R.layout.fragment_dashboard, container, false)
+        recyclerDashboard= view.findViewById(R.id.recyclerDashboard)
+        LayoutManager =LinearLayoutManager(activity)
+        recyclerAdapter=DashboardRecyclerAdapter(activity as Context,productList)
+        recyclerDashboard.adapter=recyclerAdapter
+        recyclerDashboard.layoutManager=LayoutManager
+
+        return view
+
     }
 
 }

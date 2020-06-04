@@ -1,4 +1,4 @@
-package com.cmi.flipbuy
+package com.cmi.flipbuy.fragment
 
 import android.Manifest
 import android.content.Intent
@@ -10,8 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.app.ActivityCompat
-import kotlinx.android.synthetic.main.fragment_account.view.*
-import kotlinx.android.synthetic.main.fragment_customer_service.*
+import com.cmi.flipbuy.R
 import kotlinx.android.synthetic.main.fragment_customer_service.view.*
 import kotlinx.android.synthetic.main.fragment_customer_service.view.btnCall as btnCall1
 
