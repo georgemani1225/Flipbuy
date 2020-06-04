@@ -23,7 +23,7 @@ import com.xwray.groupie.ViewHolder
 class DashboardFragment : Fragment() {
     lateinit var recyclerDashboard:RecyclerView
     lateinit var LayoutManager:RecyclerView.LayoutManager
-    val productList= arrayListOf<Product>(
+   /* val productList= arrayListOf<Product>(
         Product("Shirts","Blue","999/-","4.5","", R.drawable.polo),
         Product("Frocks","Red","500/-","4","", R.drawable.feminine))
     lateinit var recyclerAdapter: DashboardRecyclerAdapter
@@ -66,6 +66,6 @@ class DashboardFragment : Fragment() {
                 }
             }
         })
-    }
+    }*/
 
 }

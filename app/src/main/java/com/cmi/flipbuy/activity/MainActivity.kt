@@ -202,6 +202,7 @@ class MainActivity : AppCompatActivity() {
         val transaction = supportFragmentManager.beginTransaction()
         transaction.replace(R.id.frameLayout, fragment)
         transaction.commit()
+        setUpToolBar()
         navigationView.setCheckedItem(R.id.menu_dashboard)
     }
 
