@@ -18,9 +18,10 @@
             android:paddingStart="100dp"
             android:padding="10dp"
             android:text="Customer Support"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="20dp"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:layout_below="@+id/imgCustomerService"/>
         <Button
             android:id="@+id/btnCall"
             android:layout_width="match_parent"
@@ -45,6 +46,13 @@
             android:paddingStart="20dp"
             android:text="support@flipbuy.com"
             android:textColor="@color/colorPrimary"/>
+        <ImageView
+            android:id="@+id/imgCustomerService"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:src="@drawable/customer_service"
+            android:layout_marginTop="62dp"/>
+
 
 
 
