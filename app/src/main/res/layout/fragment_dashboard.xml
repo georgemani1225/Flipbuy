@@ -34,7 +34,9 @@
                 android:layout_height="171dp"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="150dp"
-                android:background="@drawable/dashbord_offers" />
+                android:background="@drawable/dashbord_offers">
+
+            </View>
 
             <TextView
                 android:id="@+id/today_s_bes"
@@ -44,6 +46,13 @@
                 android:layout_marginStart="70dp"
                 android:layout_marginTop="225dp"
                 android:background="@drawable/ic_offers_card" />
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="200dp"
+                android:src="@drawable/girl"
+                android:layout_marginTop="158dp"/>
 
         </RelativeLayout>
 
@@ -69,7 +78,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_height="200dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="1dp"
@@ -94,23 +103,23 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/shirt_1"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Shirt 1"
+                            android:text="Men's Regular Fit Shirt"
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtShirt1"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Rs 100"
-                            android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:text="Rs 999/-"
+                            android:textColor="#d7421b"
+                            android:textSize="17sp" />
 
 
                     </RelativeLayout>
@@ -118,7 +127,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_height="200dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="1dp"
@@ -136,30 +145,30 @@
                             android:layout_height="80dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
-                            android:src="@drawable/shirt_1" />
+                            android:src="@drawable/shirt_2" />
 
                         <TextView
                             android:id="@+id/txtShirt2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/shirt_2"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Shirt 2"
+                            android:text="Slim Fit Shirt Men"
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtShirt2"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Rs 100"
-                            android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:text="Rs 999/-"
+                            android:textColor="#d7421b"
+                            android:textSize="17sp" />
 
 
                     </RelativeLayout>
@@ -167,7 +176,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_height="200dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="1dp"
@@ -192,23 +201,23 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/shirt_3"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Shirt 1"
+                            android:text="Men's Casual Shirt"
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtShirt3"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Rs 100"
-                            android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:text="Rs 800/-"
+                            android:textColor="#d7421b"
+                            android:textSize="17sp" />
 
 
                     </RelativeLayout>
@@ -216,7 +225,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_height="200dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="1dp"
@@ -241,23 +250,23 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/shirt_4"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Shirt 4"
+                            android:text="Men's Check Shirt"
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtShirt4"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Rs 100"
-                            android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:text="Rs 899/-"
+                            android:textColor="#d7421b"
+                            android:textSize="17sp" />
 
 
                     </RelativeLayout>
@@ -265,7 +274,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_height="200dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="1dp"
@@ -283,30 +292,30 @@
                             android:layout_height="80dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
-                            android:src="@drawable/shirt_1" />
+                            android:src="@drawable/shirt_5" />
 
                         <TextView
                             android:id="@+id/txtShirt5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/shirt_5"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Shirt 5"
+                            android:text="Men's Formal shirt"
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtShirt5"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Rs 100"
-                            android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:text="Rs 799/-"
+                            android:textColor="#d7421b"
+                            android:textSize="17sp" />
 
 
                     </RelativeLayout>
@@ -314,7 +323,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_height="200dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="1dp"
@@ -339,22 +348,22 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/shirt_6"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Shirt 6"
+                            android:text="Men's Stylish"
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtShirt6"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Rs 100"
-                            android:textColor="#000000"
+                            android:text="Rs 1099/-"
+                            android:textColor="#d7421b"
                             android:textSize="18sp" />
 
 
@@ -387,7 +396,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_height="200dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="1dp"
@@ -405,30 +414,30 @@
                             android:layout_height="80dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
-                            android:src="@drawable/shirt_1" />
+                            android:src="@drawable/frock1" />
 
                         <TextView
                             android:id="@+id/txtFrock1"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/frock_1"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Shirt 1"
+                            android:text="Casual Women's Frock"
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtFrock1"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Rs 100"
-                            android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:text="Rs 699/-"
+                            android:textColor="#d7421b"
+                            android:textSize="17sp" />
 
 
                     </RelativeLayout>
@@ -436,7 +445,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_height="200dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="1dp"
@@ -454,30 +463,30 @@
                             android:layout_height="80dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
-                            android:src="@drawable/shirt_1" />
+                            android:src="@drawable/frock2" />
 
                         <TextView
                             android:id="@+id/txtFrock2"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/frock_2"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Shirt 2"
+                            android:text="Floral Casual Frock"
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtFrock2"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Rs 100"
-                            android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:text="Rs 600/-"
+                            android:textColor="#d7421b"
+                            android:textSize="17sp" />
 
 
                     </RelativeLayout>
@@ -485,7 +494,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_height="200dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="1dp"
@@ -503,30 +512,30 @@
                             android:layout_height="80dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
-                            android:src="@drawable/shirt_3" />
+                            android:src="@drawable/frock3" />
 
                         <TextView
                             android:id="@+id/txtFrock3"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/frock_3"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Shirt 1"
+                            android:text="Ladies Denim Cotton Frock"
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtFrock3"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Rs 100"
-                            android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:text="Rs 1299/-"
+                            android:textColor="#d7421b"
+                            android:textSize="17sp" />
 
 
                     </RelativeLayout>
@@ -534,7 +543,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_height="200dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="1dp"
@@ -552,30 +561,30 @@
                             android:layout_height="80dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
-                            android:src="@drawable/shirt_4" />
+                            android:src="@drawable/frock4" />
 
                         <TextView
                             android:id="@+id/txtFrock4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/frock_4"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Shirt 4"
+                            android:text="Sketchwork Frock"
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtFrock4"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Rs 100"
-                            android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:text="Rs 799/-"
+                            android:textColor="#d7421b"
+                            android:textSize="17sp" />
 
 
                     </RelativeLayout>
@@ -583,7 +592,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_height="200dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="1dp"
@@ -601,30 +610,30 @@
                             android:layout_height="80dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="10dp"
-                            android:src="@drawable/shirt_1" />
+                            android:src="@drawable/frock5" />
 
                         <TextView
                             android:id="@+id/txtFrock5"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/frock_5"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Shirt 5"
+                            android:text="Women's CapSleeve Frock "
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtFrock5"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Rs 100"
-                            android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:text="Rs 699/-"
+                            android:textColor="#d7421b"
+                            android:textSize="17sp" />
 
 
                     </RelativeLayout>
@@ -632,7 +641,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="180dp"
-                    android:layout_height="180dp"
+                    android:layout_height="200dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="8dp"
                     android:layout_marginEnd="1dp"
@@ -657,23 +666,23 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/frock_6"
-                            android:layout_marginTop="4dp"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Frock 6"
+                            android:text="Ladies Full Frock Blue"
                             android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:textSize="15sp" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_below="@+id/txtFrock6"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Rs 100"
-                            android:textColor="#000000"
-                            android:textSize="18sp" />
+                            android:text="Rs 799/-"
+                            android:textColor="#d7421b"
+                            android:textSize="17sp" />
 
 
                     </RelativeLayout>
