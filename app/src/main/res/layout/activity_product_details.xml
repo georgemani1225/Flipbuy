@@ -1,76 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activity.ProductDetailsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        app:elevation="0dp"
+        android:background="@android:color/transparent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:theme="@style/ToolBarTheme" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
     <ImageView
-        android:id="@+id/pdt_image_details"
+        android:id="@+id/pdt_Image"
         android:layout_width="match_parent"
-        android:layout_height="260dp" />
+        android:layout_height="250dp"
+        android:layout_marginTop="65dp" />
+
     <TextView
+        android:id="@+id/txtPdt_Name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/txtPdt_details"
-        android:layout_below="@+id/pdt_image_details"
-        android:text="Product Name"
+        android:layout_below="@+id/pdt_Image"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/poppins_medium"
+        android:padding="4dp"
+        android:layout_marginStart="8dp"
         android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="18sp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:padding="1dp"/>
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtPdt_descrip"
-        android:layout_below="@+id/txtPdt_details"
-        android:text="Product Description"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:padding="1dp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtPdt_price"
-        android:layout_below="@+id/txtPdt_descrip"
-        android:text="Product Name"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="15sp"
-        android:gravity="center"
-        android:layout_marginTop="10dp"
-        android:padding="1dp"/>
-    <com.cepheuen.elegantnumberbutton.view.ElegantNumberButton
-        android:id="@+id/num_btn"
+        android:id="@+id/txtPdt_Desc"
         android:layout_width="wrap_content"
+        android:layout_marginStart="8dp"
         android:layout_height="wrap_content"
-        android:elevation="6dp"
-        app:textSize="10sp"
-        app:initialNumber="1"
-        android:padding="3dp"
-        app:textColor="@color/OurColor1"
-        app:finalNumber="10"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@id/txtPdt_price"
-        android:layout_marginTop="10dp"/>
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add_product_to_cart"
-        android:layout_width="wrap_content"
+        android:layout_below="@+id/txtPdt_Name"
+        android:layout_alignParentStart="true"
+        android:fontFamily="@font/poppins_medium"
+        android:padding="4dp"
+        android:textColor="#9e9e9e"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/txtPdt_Price"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:elevation="6dp"
-        android:backgroundTint="@color/OurColor4"
-        android:src="@drawable/ic_cart"
+        android:layout_below="@+id/txtPdt_Desc"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:padding="4dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/OurColor1"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/txtPdt_Status"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtPdt_Price"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="10dp"
+        android:padding="4dp"
+        android:text="In Stock"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="#d7421b"
+        android:textSize="18sp" />
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="15dp"/>
-
-
-
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-10dp"
+        android:background="@drawable/cart_button"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Add to Cart"
+        android:textColor="#ffffff" />
 
 
 </RelativeLayout>
