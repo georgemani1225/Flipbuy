@@ -5,14 +5,8 @@
             android:id="@+id/menu_dashboard"
             android:title="@string/dashboard"
             android:icon="@drawable/ic_dashboard"/>
-        <item
-            android:id="@+id/menu_Offers"
-            android:title="@string/offers"
-            android:icon="@drawable/ic_offers"/>
-        <item
-            android:id="@+id/menu_products"
-            android:title="@string/other_products"
-            android:icon="@drawable/ic_products"/>
+
+
         <item
             android:id="@+id/menu_my_cart"
             android:title="@string/my_cart"
@@ -21,10 +15,7 @@
             android:id="@+id/menu_my_wishList"
             android:title="@string/my_wishlist"
             android:icon="@drawable/ic_wishlist"/>
-        <item
-            android:id="@+id/menu_my_orders"
-            android:title="@string/my_orders"
-            android:icon="@drawable/ic_orders"/>
+
         <item
             android:id="@+id/menu_my_account"
             android:title="@string/my_account"

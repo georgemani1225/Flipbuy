@@ -107,13 +107,7 @@ class MainActivity : AppCompatActivity() {
                     openDashboard()
                     drawerLayout.closeDrawers()
                 }
-                R.id.menu_Offers -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, CartFragment())
-                        .commit()
-                    supportActionBar?.title = "Offers"
-                    drawerLayout.closeDrawers()
-                }
+
 
                 R.id.menu_my_cart -> {
                     supportFragmentManager.beginTransaction()
@@ -128,13 +122,8 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.title = "Your WishList"
                     drawerLayout.closeDrawers()
                 }
-                R.id.menu_my_orders -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, OrdersFragment())
-                        .commit()
-                    supportActionBar?.title = "Your Orders"
-                    drawerLayout.closeDrawers()
-                }
+
+
                 R.id.menu_my_account -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frameLayout, AccountFragment())

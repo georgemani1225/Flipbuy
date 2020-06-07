@@ -10,6 +10,8 @@ import com.cmi.flipbuy.R
 import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_details.*
+import android.os.AsyncTask
+import androidx.core.content.ContextCompat
 
 
 class ProductDetailsActivity : AppCompatActivity() {
@@ -50,5 +52,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                 Picasso.get().load(Iresult).into(pdt_Image)
             }
         })
+
+
     }
 }
