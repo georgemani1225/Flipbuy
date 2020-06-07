@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.AccountFragment"
     android:background="#ffffff"
-    >
+    tools:context=".fragment.AccountFragment">
+
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/ToolBAR"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:id="@+id/ToolBAR"
-        android:minHeight="?attr/actionBarSize"
         android:background="@color/colorPrimary"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#ffffff">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <RelativeLayout
                 android:id="@+id/topRelativeLayout"
                 android:layout_width="match_parent"
@@ -34,15 +36,15 @@
                     android:layout_width="100dp"
                     android:layout_height="100dp"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginLeft="30dp"
+                    android:src="@drawable/profile"
+                    android:layout_marginStart="30dp"
                     android:layout_marginTop="50dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:src="@drawable/profile"
                     app:civ_border_color="#08808E"
                     app:civ_border_width="3dp" />
 
-            <Button
+                <Button
                     android:id="@+id/btnEditProfile"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
@@ -81,11 +83,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/btnEditProfile"
-                    android:layout_marginLeft="50dp"
+                    android:layout_marginLeft="45dp"
                     android:layout_marginTop="65dp"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="My Orders"
                     android:textColor="#08808E"
-                    android:textSize="13sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/txtViewOrders"
@@ -94,10 +97,11 @@
                     android:layout_below="@id/btnEditProfile"
                     android:layout_alignParentEnd="true"
                     android:layout_marginTop="110dp"
-                    android:layout_marginRight="60dp"
+                    android:layout_marginRight="50dp"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="View all orders"
                     android:textColor="#7AC9D0"
-                    android:textSize="13sp" />
+                    android:textSize="18sp" />
 
                 <View
                     android:id="@+id/rectangle_2"
@@ -113,11 +117,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/txtMyOrders"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="85dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="75dp"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="My Phone Number"
                     android:textColor="#08808E"
-                    android:textSize="13sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/txtPhoneNumber"
@@ -154,11 +159,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@id/txtPhoneN"
-                    android:layout_marginLeft="55dp"
-                    android:layout_marginTop="85dp"
+                    android:layout_marginLeft="45dp"
+                    android:layout_marginTop="75dp"
+                    android:fontFamily="@font/poppins_medium"
                     android:text="My Address"
                     android:textColor="#08808E"
-                    android:textSize="13sp" />
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/txtDelAddress"

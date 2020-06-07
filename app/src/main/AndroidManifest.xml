@@ -16,11 +16,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.ProductDetailsActivity"
-            android:theme="@style/ToolBarTheme"
-            android:parentActivityName=".activity.MainActivity">
-
-        </activity>
+        <activity android:name=".activity.CartActivity"></activity>
+        <activity
+            android:name=".activity.ProductDetailsActivity"
+            android:parentActivityName=".activity.MainActivity"
+            android:theme="@style/ToolBarTheme"></activity>
         <activity android:name=".activity.Checkout" />
         <activity android:name=".activity.DrawerHeader" />
         <activity android:name=".activity.AdminCategoryActivity" />

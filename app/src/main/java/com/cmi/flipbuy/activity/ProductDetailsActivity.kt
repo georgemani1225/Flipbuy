@@ -11,7 +11,9 @@ import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_product_details.*
 import android.os.AsyncTask
+import android.widget.Toast
 import androidx.core.content.ContextCompat
+import com.cmi.flipbuy.model.Cart
 
 
 class ProductDetailsActivity : AppCompatActivity() {
@@ -53,6 +55,18 @@ class ProductDetailsActivity : AppCompatActivity() {
             }
         })
 
-
+        btnCart.setOnClickListener {
+            val database = FirebaseDatabase.getInstance()
+            val ref = database.getReference("Cart")
+            val newpostRef = ref.push()
+            newpostRef.setValue(
+                Cart(
+                    txtPdt_Name.toString(),
+                    txt_PdtPrice.toString(),
+                    pdt_Image.toString()
+                )
+            )
+            Toast.makeText(this, "Added to Cart", Toast.LENGTH_LONG).show()
+        }
     }
 }

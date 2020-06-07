@@ -23,6 +23,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.firebase.ui.database.FirebaseRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import com.squareup.picasso.Picasso
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_drawer_header.*
 import kotlinx.android.synthetic.main.activity_main.*
@@ -42,8 +43,8 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        val posts:ArrayList<String> =ArrayList()
-        for (i in 1..100){
+        val posts: ArrayList<String> = ArrayList()
+        for (i in 1..100) {
             posts.add("Post # $1")
         }
         super.onCreate(savedInstanceState)
@@ -107,12 +108,9 @@ class MainActivity : AppCompatActivity() {
                     openDashboard()
                     drawerLayout.closeDrawers()
                 }
-
-
                 R.id.menu_my_cart -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, CartFragment())
-                        .commit()
+                    val intent = Intent(this, CartActivity::class.java)
+                    startActivity(intent)
                     supportActionBar?.title = "Your cart"
                     drawerLayout.closeDrawers()
                 }
@@ -122,7 +120,6 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.title = "Your WishList"
                     drawerLayout.closeDrawers()
                 }
-
 
                 R.id.menu_my_account -> {
                     supportFragmentManager.beginTransaction()
@@ -144,7 +141,8 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.customer_service -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout,
+                        .replace(
+                            R.id.frameLayout,
                             CustomerServiceFragment()
                         )
                         .commit()
@@ -173,7 +171,6 @@ class MainActivity : AppCompatActivity() {
             return@setNavigationItemSelectedListener true
         }
     }
-
 
 
     fun setUpToolBar() {
@@ -209,7 +206,8 @@ class MainActivity : AppCompatActivity() {
         }
 
     }
-    private fun displayProducts(){
+
+    private fun displayProducts() {
 
     }
 
