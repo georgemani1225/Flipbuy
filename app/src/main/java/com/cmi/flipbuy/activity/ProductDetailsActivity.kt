@@ -56,17 +56,32 @@ class ProductDetailsActivity : AppCompatActivity() {
         })
 
         btnCart.setOnClickListener {
-            val database = FirebaseDatabase.getInstance()
-            val ref = database.getReference("Cart")
-            val newpostRef = ref.push()
-            newpostRef.setValue(
-                Cart(
-                    txtPdt_Name.toString(),
-                    txt_PdtPrice.toString(),
-                    pdt_Image.toString()
-                )
-            )
-            Toast.makeText(this, "Added to Cart", Toast.LENGTH_LONG).show()
+            mDatabase = FirebaseDatabase.getInstance().getReference("Products").child(pdtID!!)
+            mDatabase.addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(p0: DatabaseError) {
+
+                }
+
+                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                    val Nresult = dataSnapshot.child("ProductName").getValue().toString()
+                    val Iresult = dataSnapshot.child("ProductImg").getValue().toString()
+                    val Presult = dataSnapshot.child("ProductPrice").getValue().toString()
+                    val database = FirebaseDatabase.getInstance()
+                    val ref = database.getReference("Cart")
+                    val newpostRef = ref.push()
+                    newpostRef.setValue(
+                        Cart(
+                            Nresult,
+                            Presult,
+                            Iresult
+
+                        )
+                    )
+                    Toast.makeText(applicationContext, "Added to Cart", Toast.LENGTH_LONG).show()
+                }
+            })
+
+
         }
     }
 }
