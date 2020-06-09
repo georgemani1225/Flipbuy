@@ -14,6 +14,8 @@ import android.os.AsyncTask
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import com.cmi.flipbuy.model.Cart
+import com.google.firebase.auth.FirebaseAuth
+import java.util.*
 
 
 class ProductDetailsActivity : AppCompatActivity() {
@@ -67,14 +69,15 @@ class ProductDetailsActivity : AppCompatActivity() {
                     val Iresult = dataSnapshot.child("ProductImg").getValue().toString()
                     val Presult = dataSnapshot.child("ProductPrice").getValue().toString()
                     val database = FirebaseDatabase.getInstance()
-                    val ref = database.getReference("Cart")
+                    val ref = database.reference.child("Cart")
                     val newpostRef = ref.push()
+                    val pid = newpostRef.key.toString()
                     newpostRef.setValue(
                         Cart(
                             Nresult,
+                            Iresult,
                             Presult,
-                            Iresult
-
+                            pid
                         )
                     )
                     Toast.makeText(applicationContext, "Added to Cart", Toast.LENGTH_LONG).show()

@@ -3,6 +3,8 @@ package com.cmi.flipbuy.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
+import android.widget.ImageView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cmi.flipbuy.R
@@ -27,7 +29,7 @@ class CartActivity : AppCompatActivity() {
         cList = findViewById(R.id.cList)
         cList.setHasFixedSize(true)
         cList.setLayoutManager(LinearLayoutManager(this))
-        mDatabase = FirebaseDatabase.getInstance().getReference("Cart")
+        mDatabase = FirebaseDatabase.getInstance().reference.child("Cart")
 
         logRecyclerView()
 
@@ -50,6 +52,10 @@ class CartActivity : AppCompatActivity() {
                 viewHolder.itemView.txtPname.setText(model.name)
                 viewHolder.itemView.txtPprice.setText(model.price)
                 Picasso.get().load(model.image).into(viewHolder.itemView.imgCartItem)
+                viewHolder.itemView.btnDel.setOnClickListener {
+                    mDatabase.child(model.id).removeValue()
+                }
+
 
 
             }
