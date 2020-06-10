@@ -51,6 +51,10 @@
             android:screenOrientation="portrait" />
 
         <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_test_F3ouYO2QXK99TO" />
+
+        <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>

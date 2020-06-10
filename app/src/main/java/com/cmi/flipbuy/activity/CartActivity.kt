@@ -1,5 +1,6 @@
 package com.cmi.flipbuy.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -20,11 +21,14 @@ class CartActivity : AppCompatActivity() {
 
     lateinit var cList: RecyclerView
     lateinit var mDatabase: DatabaseReference
+    lateinit var btnCheckout: Button
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
+
+        btnCheckout = findViewById(R.id.btnCheckout)
 
         cList = findViewById(R.id.cList)
         cList.setHasFixedSize(true)
@@ -32,6 +36,12 @@ class CartActivity : AppCompatActivity() {
         mDatabase = FirebaseDatabase.getInstance().reference.child("Cart")
 
         logRecyclerView()
+
+        btnCheckout.setOnClickListener {
+            val intent = Intent(this, PaymentActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
 
@@ -55,7 +65,6 @@ class CartActivity : AppCompatActivity() {
                 viewHolder.itemView.btnDel.setOnClickListener {
                     mDatabase.child(model.id).removeValue()
                 }
-
 
 
             }
