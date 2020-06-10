@@ -36,11 +36,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/OurColor1"
+        android:background="@drawable/cart_button"
         android:text="Checkout"
+        android:clickable="true"
         android:textAllCaps="false"
         android:textColor="#ffffff"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:focusable="true" />
 
 
 </RelativeLayout>
