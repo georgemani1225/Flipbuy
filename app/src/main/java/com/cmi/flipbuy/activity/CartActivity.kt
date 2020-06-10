@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.cmi.flipbuy.R
 import com.cmi.flipbuy.model.Cart
 import com.firebase.ui.database.FirebaseRecyclerAdapter
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.squareup.picasso.Picasso
@@ -33,7 +34,8 @@ class CartActivity : AppCompatActivity() {
         cList = findViewById(R.id.cList)
         cList.setHasFixedSize(true)
         cList.setLayoutManager(LinearLayoutManager(this))
-        mDatabase = FirebaseDatabase.getInstance().reference.child("Cart")
+        mDatabase = FirebaseDatabase.getInstance().reference.child("Users")
+            .child(FirebaseAuth.getInstance().currentUser?.uid.toString()).child("Cart")
 
         logRecyclerView()
 

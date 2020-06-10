@@ -69,8 +69,8 @@ class AccountFragment : Fragment() {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val nameResult = dataSnapshot.child("Name").getValue().toString()
-                val mobileResult = dataSnapshot.child("MobileNumber").getValue().toString()
-                val dResult = dataSnapshot.child("DeliveryAddress").getValue().toString()
+                val mobileResult = dataSnapshot.child("Mobile Number").getValue().toString()
+                val dResult = dataSnapshot.child("Delivery Address").getValue().toString()
                 UserNameProfile.text = nameResult
                 txtPhoneNumber.text = "+91" + " " + mobileResult
                 txtDelAddress.text = dResult

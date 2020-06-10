@@ -106,7 +106,6 @@ class MainActivity : AppCompatActivity() {
                 R.id.menu_my_cart -> {
                     val intent = Intent(this, CartActivity::class.java)
                     startActivity(intent)
-                    supportActionBar?.title = "Your cart"
                     drawerLayout.closeDrawers()
                 }
                 R.id.menu_my_wishList -> {

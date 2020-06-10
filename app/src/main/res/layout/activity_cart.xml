@@ -12,16 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/SubTotal"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="60dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Subtotal:"
-            android:textColor="@color/OurColor1"
-            android:textSize="18sp" />
+
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView

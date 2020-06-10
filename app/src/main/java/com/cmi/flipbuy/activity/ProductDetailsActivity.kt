@@ -69,7 +69,8 @@ class ProductDetailsActivity : AppCompatActivity() {
                     val Iresult = dataSnapshot.child("ProductImg").getValue().toString()
                     val Presult = dataSnapshot.child("ProductPrice").getValue().toString()
                     val database = FirebaseDatabase.getInstance()
-                    val ref = database.reference.child("Cart")
+                    val ref = database.reference.child("Users")
+                        .child(FirebaseAuth.getInstance().currentUser?.uid.toString()).child("Cart")
                     val newpostRef = ref.push()
                     val pid = newpostRef.key.toString()
                     newpostRef.setValue(
