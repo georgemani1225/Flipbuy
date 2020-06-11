@@ -133,7 +133,7 @@
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Rs 999/-"
+                            android:text="₹ 999"
                             android:textColor="#d7421b"
                             android:textSize="17sp" />
 
@@ -183,7 +183,7 @@
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Rs 999/-"
+                            android:text="₹ 999"
                             android:textColor="#d7421b"
                             android:textSize="17sp" />
 
@@ -233,7 +233,7 @@
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Rs 800/-"
+                            android:text="₹ 800"
                             android:textColor="#d7421b"
                             android:textSize="17sp" />
 
@@ -283,7 +283,7 @@
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Rs 899/-"
+                            android:text="₹ 899"
                             android:textColor="#d7421b"
                             android:textSize="17sp" />
 
@@ -333,7 +333,7 @@
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Rs 799/-"
+                            android:text="₹ 799"
                             android:textColor="#d7421b"
                             android:textSize="17sp" />
 
@@ -383,7 +383,7 @@
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Rs 1099/-"
+                            android:text="₹ 1099"
                             android:textColor="#d7421b"
                             android:textSize="18sp" />
 
@@ -456,7 +456,7 @@
                             android:layout_marginTop="-5dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Rs 699/-"
+                            android:text="₹ 699"
                             android:textColor="#d7421b"
                             android:textSize="17sp" />
 
@@ -506,7 +506,7 @@
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Rs 600/-"
+                            android:text="₹ 600"
                             android:textColor="#d7421b"
                             android:textSize="17sp" />
 
@@ -556,7 +556,7 @@
                             android:layout_marginTop="-5dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Rs 1299/-"
+                            android:text="₹ 1299"
                             android:textColor="#d7421b"
                             android:textSize="17sp" />
 
@@ -606,7 +606,7 @@
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Rs 799/-"
+                            android:text="₹ 799"
                             android:textColor="#d7421b"
                             android:textSize="17sp" />
 
@@ -656,7 +656,7 @@
                             android:layout_marginTop="-5dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Rs 699/-"
+                            android:text="₹ 699"
                             android:textColor="#d7421b"
                             android:textSize="17sp" />
 
@@ -706,7 +706,7 @@
                             android:layout_marginTop="15dp"
                             android:fontFamily="@font/poppins_medium"
                             android:gravity="center"
-                            android:text="Rs 799/-"
+                            android:text="₹ 799"
                             android:textColor="#d7421b"
                             android:textSize="17sp" />
 
