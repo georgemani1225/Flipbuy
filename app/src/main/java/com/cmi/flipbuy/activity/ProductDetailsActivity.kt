@@ -50,9 +50,14 @@ class ProductDetailsActivity : AppCompatActivity() {
         var btnM_ba: Int = 1
         var btnL_ba: Int = 1
         var btnXL_ba: Int = 1
+        var size: String? = null
+
+        btnS.setBackgroundResource(R.drawable.ic_sfill)
+        btnS_ba = 2
+        size = "S"
+
         btnS.setOnClickListener {
-            if (btnM_ba == 2 || btnL_ba == 2 || btnXL_ba == 2)
-            {
+            if (btnM_ba == 2 || btnL_ba == 2 || btnXL_ba == 2) {
                 btnM.setBackgroundResource(R.drawable.ic_m)
                 btnL.setBackgroundResource(R.drawable.ic_l)
                 btnXL.setBackgroundResource(R.drawable.ic_xl)
@@ -62,10 +67,10 @@ class ProductDetailsActivity : AppCompatActivity() {
             }
             btnS.setBackgroundResource(R.drawable.ic_sfill)
             btnS_ba = 2
+            size = "S"
         }
         btnM.setOnClickListener {
-            if (btnS_ba == 2 || btnL_ba == 2 || btnXL_ba == 2)
-            {
+            if (btnS_ba == 2 || btnL_ba == 2 || btnXL_ba == 2) {
                 btnS.setBackgroundResource(R.drawable.ic_s)
                 btnL.setBackgroundResource(R.drawable.ic_l)
                 btnXL.setBackgroundResource(R.drawable.ic_xl)
@@ -75,10 +80,10 @@ class ProductDetailsActivity : AppCompatActivity() {
             }
             btnM.setBackgroundResource(R.drawable.ic_mfill)
             btnM_ba = 2
+            size = "M"
         }
         btnL.setOnClickListener {
-            if (btnS_ba == 2 || btnM_ba == 2 || btnXL_ba == 2)
-            {
+            if (btnS_ba == 2 || btnM_ba == 2 || btnXL_ba == 2) {
                 btnS.setBackgroundResource(R.drawable.ic_s)
                 btnM.setBackgroundResource(R.drawable.ic_m)
                 btnXL.setBackgroundResource(R.drawable.ic_xl)
@@ -88,10 +93,10 @@ class ProductDetailsActivity : AppCompatActivity() {
             }
             btnL.setBackgroundResource(R.drawable.ic_lfill)
             btnL_ba = 2
+            size = "L"
         }
         btnXL.setOnClickListener {
-            if (btnS_ba == 2 || btnM_ba == 2 || btnL_ba == 2)
-            {
+            if (btnS_ba == 2 || btnM_ba == 2 || btnL_ba == 2) {
                 btnS.setBackgroundResource(R.drawable.ic_s)
                 btnM.setBackgroundResource(R.drawable.ic_m)
                 btnL.setBackgroundResource(R.drawable.ic_l)
@@ -101,7 +106,9 @@ class ProductDetailsActivity : AppCompatActivity() {
             }
             btnXL.setBackgroundResource(R.drawable.ic_xlfill)
             btnXL_ba = 2
+            size = "XL"
         }
+
         pdtID = intent.getStringExtra("pid")
         mDatabase = FirebaseDatabase.getInstance().getReference("Products").child(pdtID!!)
         mDatabase.addValueEventListener(object : ValueEventListener {
@@ -142,7 +149,8 @@ class ProductDetailsActivity : AppCompatActivity() {
                             Nresult,
                             Iresult,
                             Presult,
-                            pid
+                            pid,
+                            size
                         )
                     )
                     Toast.makeText(applicationContext, "Added to Cart", Toast.LENGTH_LONG).show()

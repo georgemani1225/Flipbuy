@@ -63,6 +63,7 @@ class CartActivity : AppCompatActivity() {
             ) {
                 viewHolder.itemView.txtPname.setText(model.name)
                 viewHolder.itemView.txtPprice.setText(model.price)
+                viewHolder.itemView.txtPsize.setText("Size: " + model.size)
                 Picasso.get().load(model.image).into(viewHolder.itemView.imgCartItem)
                 viewHolder.itemView.btnDel.setOnClickListener {
                     mDatabase.child(model.id).removeValue()
