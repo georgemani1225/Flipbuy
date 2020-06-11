@@ -187,15 +187,13 @@
                     android:textSize="13sp" />
 
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/rectangle_3"
+                    android:text="\n\n\n" />
+
             </RelativeLayout>
-
-
         </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="\n\n\n" />
-
     </ScrollView>
 </RelativeLayout>

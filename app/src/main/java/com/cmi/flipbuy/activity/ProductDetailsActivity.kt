@@ -26,6 +26,10 @@ class ProductDetailsActivity : AppCompatActivity() {
     lateinit var txt_PdtDesc: TextView
     lateinit var txt_PdtPrice: TextView
     private var pdtID: String? = null
+    lateinit var btnS: Button
+    lateinit var btnM: Button
+    lateinit var btnL: Button
+    lateinit var btnXL: Button
     lateinit var mDatabase: DatabaseReference
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +42,66 @@ class ProductDetailsActivity : AppCompatActivity() {
         txtPdt_Name = findViewById(R.id.txtPdt_Name)
         txt_PdtDesc = findViewById(R.id.txtPdt_Desc)
         txt_PdtPrice = findViewById(R.id.txtPdt_Price)
+        btnS = findViewById(R.id.btnS)
+        btnM = findViewById(R.id.btnM)
+        btnL = findViewById(R.id.btnL)
+        btnXL = findViewById(R.id.btnXL)
+        var btnS_ba: Int = 1
+        var btnM_ba: Int = 1
+        var btnL_ba: Int = 1
+        var btnXL_ba: Int = 1
+        btnS.setOnClickListener {
+            if (btnM_ba == 2 || btnL_ba == 2 || btnXL_ba == 2)
+            {
+                btnM.setBackgroundResource(R.drawable.ic_m)
+                btnL.setBackgroundResource(R.drawable.ic_l)
+                btnXL.setBackgroundResource(R.drawable.ic_xl)
+                btnM_ba = 1
+                btnL_ba = 1
+                btnXL_ba = 1
+            }
+            btnS.setBackgroundResource(R.drawable.ic_sfill)
+            btnS_ba = 2
+        }
+        btnM.setOnClickListener {
+            if (btnS_ba == 2 || btnL_ba == 2 || btnXL_ba == 2)
+            {
+                btnS.setBackgroundResource(R.drawable.ic_s)
+                btnL.setBackgroundResource(R.drawable.ic_l)
+                btnXL.setBackgroundResource(R.drawable.ic_xl)
+                btnS_ba = 1
+                btnL_ba = 1
+                btnXL_ba = 1
+            }
+            btnM.setBackgroundResource(R.drawable.ic_mfill)
+            btnM_ba = 2
+        }
+        btnL.setOnClickListener {
+            if (btnS_ba == 2 || btnM_ba == 2 || btnXL_ba == 2)
+            {
+                btnS.setBackgroundResource(R.drawable.ic_s)
+                btnM.setBackgroundResource(R.drawable.ic_m)
+                btnXL.setBackgroundResource(R.drawable.ic_xl)
+                btnM_ba = 1
+                btnS_ba = 1
+                btnXL_ba = 1
+            }
+            btnL.setBackgroundResource(R.drawable.ic_lfill)
+            btnL_ba = 2
+        }
+        btnXL.setOnClickListener {
+            if (btnS_ba == 2 || btnM_ba == 2 || btnL_ba == 2)
+            {
+                btnS.setBackgroundResource(R.drawable.ic_s)
+                btnM.setBackgroundResource(R.drawable.ic_m)
+                btnL.setBackgroundResource(R.drawable.ic_l)
+                btnS_ba = 1
+                btnM_ba = 1
+                btnL_ba = 1
+            }
+            btnXL.setBackgroundResource(R.drawable.ic_xlfill)
+            btnXL_ba = 2
+        }
         pdtID = intent.getStringExtra("pid")
         mDatabase = FirebaseDatabase.getInstance().getReference("Products").child(pdtID!!)
         mDatabase.addValueEventListener(object : ValueEventListener {
