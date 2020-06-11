@@ -84,8 +84,6 @@ class ProductDetailsActivity : AppCompatActivity() {
                     Toast.makeText(applicationContext, "Added to Cart", Toast.LENGTH_LONG).show()
                 }
             })
-
-
         }
     }
 }

@@ -12,23 +12,39 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true">
 
-
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cList"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/btnCheckout"
+        android:layout_above="@+id/txtTotal"
         android:layout_below="@id/cRel" />
 
+    <TextView
+        android:id="@+id/txtTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp"
+        android:layout_above="@+id/btnCheckout"
+        android:text="Sub Total:"
+        android:layout_marginTop="20dp"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/OurColor1"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/poppins_medium"
+        />
     <Button
         android:id="@+id/btnCheckout"
-        android:layout_width="match_parent"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="80dp"
         android:background="@drawable/cart_button"
         android:text="Checkout"
+        android:layout_centerHorizontal="true"
         android:clickable="true"
         android:textAllCaps="false"
         android:textColor="#ffffff"
