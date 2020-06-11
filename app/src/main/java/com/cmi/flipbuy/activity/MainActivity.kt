@@ -129,7 +129,7 @@ class MainActivity : AppCompatActivity() {
                         AdminCategoryActivity::class.java
                     )
                     startActivity(intent)
-                    supportActionBar?.title = "Admin"
+                    supportActionBar?.title = "FlipBuy"
                     drawerLayout.closeDrawers()
 
                 }
@@ -189,6 +189,7 @@ class MainActivity : AppCompatActivity() {
         transaction.replace(R.id.frameLayout, fragment)
         transaction.commit()
         setUpToolBar()
+        supportActionBar?.title = "FlipBuy"
         navigationView.setCheckedItem(R.id.menu_dashboard)
     }
 

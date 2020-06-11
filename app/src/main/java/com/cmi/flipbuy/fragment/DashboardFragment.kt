@@ -14,7 +14,7 @@ import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_drawer_header.*
 import kotlinx.android.synthetic.main.activity_product_details.*
-import kotlinx.android.synthetic.main.fragment_dashboard.*
+import kotlinx.android.synthetic.main.fragment_dashboard.view.*
 
 
 class DashboardFragment : Fragment() {
