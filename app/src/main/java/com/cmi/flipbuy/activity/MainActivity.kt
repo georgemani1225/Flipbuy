@@ -22,6 +22,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlinx.android.synthetic.main.activity_drawer_header.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,6 +30,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var imgProfileHeader: CircleImageView
     lateinit var coordinatorLayout: CoordinatorLayout
     lateinit var ToolBar: Toolbar
+
     lateinit var frameLayout: FrameLayout
     lateinit var navigationView: NavigationView
     lateinit var sharedPreferences: SharedPreferences
@@ -51,6 +53,11 @@ class MainActivity : AppCompatActivity() {
         ToolBar = findViewById(R.id.ToolBar)
         navigationView = findViewById(R.id.navigationView)
         frameLayout = findViewById(R.id.frameLayout)
+        btntoolbarCart.setOnClickListener {
+            val intent=Intent(this@MainActivity,CartActivity::class.java)
+            startActivity(intent)
+        }
+
         imgProfileHeader = navigationView.getHeaderView(0).findViewById(R.id.imgProfileHeader)
 
         imgProfileHeader.setOnClickListener {
@@ -79,6 +86,7 @@ class MainActivity : AppCompatActivity() {
 
         openDashboard()
         setUpToolBar()
+
 
         val actionBarDrawerToggle = ActionBarDrawerToggle(
             this@MainActivity, drawerLayout,
