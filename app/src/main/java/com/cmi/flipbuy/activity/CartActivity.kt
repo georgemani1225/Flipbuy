@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cmi.flipbuy.R
@@ -23,7 +24,7 @@ class CartActivity : AppCompatActivity() {
     lateinit var cList: RecyclerView
     lateinit var mDatabase: DatabaseReference
     lateinit var btnCheckout: Button
-    var tot: Int = 0
+    lateinit var txtTotal: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,12 +32,34 @@ class CartActivity : AppCompatActivity() {
         setContentView(R.layout.activity_cart)
 
         btnCheckout = findViewById(R.id.btnCheckout)
+        txtTotal = findViewById(R.id.txtTotal)
 
         cList = findViewById(R.id.cList)
         cList.setHasFixedSize(true)
         cList.setLayoutManager(LinearLayoutManager(this))
         mDatabase = FirebaseDatabase.getInstance().reference.child("Users")
             .child(FirebaseAuth.getInstance().currentUser?.uid.toString()).child("Cart")
+
+        mDatabase.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                var add: Int = 0
+                for (ds in dataSnapshot.children) {
+                    val p = ds.child("price").getValue().toString()
+                    var pValue: Int
+                    pValue = p.toInt()
+                    add += pValue
+                    txtTotal.text = "Sub Total: ₹" + add.toString()
+                    mDatabase.child("totalp").setValue(add.toString())
+                }
+                txtTotal.text = "Sub Total: ₹" + add.toString()
+            }
+        })
+
 
         logRecyclerView()
 
@@ -45,7 +68,6 @@ class CartActivity : AppCompatActivity() {
             val intent = Intent(this, PaymentActivity::class.java)
             startActivity(intent)
         }
-
 
     }
 
@@ -66,14 +88,9 @@ class CartActivity : AppCompatActivity() {
                 viewHolder.itemView.txtPname.setText(model.name)
                 viewHolder.itemView.txtPprice.setText("₹" + model.price)
                 viewHolder.itemView.txtPsize.setText("Size: " + model.size)
-                tot = tot + model.price?.toInt()!!
-                txtTotal.setText("Sub Total: " + "₹" + tot)
                 Picasso.get().load(model.image).into(viewHolder.itemView.imgCartItem)
                 viewHolder.itemView.btnDel.setOnClickListener {
                     mDatabase.child(model.id).removeValue()
-                    tot = tot - model.price?.toInt()!!
-                    txtTotal.setText("Sub Total: " + "₹" + tot)
-
                 }
             }
         }
