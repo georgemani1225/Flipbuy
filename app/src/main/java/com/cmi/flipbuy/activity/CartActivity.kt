@@ -12,9 +12,9 @@ import com.cmi.flipbuy.R
 import com.cmi.flipbuy.model.Cart
 import com.firebase.ui.database.FirebaseRecyclerAdapter
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.*
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_cart.*
 import kotlinx.android.synthetic.main.cart_items_layout.view.*
 
 
@@ -23,6 +23,7 @@ class CartActivity : AppCompatActivity() {
     lateinit var cList: RecyclerView
     lateinit var mDatabase: DatabaseReference
     lateinit var btnCheckout: Button
+    var tot: Int = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,6 +39,7 @@ class CartActivity : AppCompatActivity() {
             .child(FirebaseAuth.getInstance().currentUser?.uid.toString()).child("Cart")
 
         logRecyclerView()
+
 
         btnCheckout.setOnClickListener {
             val intent = Intent(this, PaymentActivity::class.java)
@@ -62,18 +64,18 @@ class CartActivity : AppCompatActivity() {
                 position: Int
             ) {
                 viewHolder.itemView.txtPname.setText(model.name)
-                viewHolder.itemView.txtPprice.setText(model.price)
+                viewHolder.itemView.txtPprice.setText("₹" + model.price)
                 viewHolder.itemView.txtPsize.setText("Size: " + model.size)
+                tot = tot + model.price?.toInt()!!
+                txtTotal.setText("Sub Total: " + "₹" + tot)
                 Picasso.get().load(model.image).into(viewHolder.itemView.imgCartItem)
                 viewHolder.itemView.btnDel.setOnClickListener {
                     mDatabase.child(model.id).removeValue()
+                    tot = tot - model.price?.toInt()!!
+                    txtTotal.setText("Sub Total: " + "₹" + tot)
                 }
-
-
             }
-
         }
-
         cList.adapter = FirebaseRecyclerAdapter
     }
 

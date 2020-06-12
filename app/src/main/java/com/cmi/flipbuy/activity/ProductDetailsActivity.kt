@@ -123,7 +123,7 @@ class ProductDetailsActivity : AppCompatActivity() {
                 val Presult = dataSnapshot.child("ProductPrice").getValue().toString()
                 txtPdt_Name.text = Nresult
                 txt_PdtDesc.text = Dresult
-                txt_PdtPrice.text = Presult
+                txt_PdtPrice.text = "₹" + Presult
                 Picasso.get().load(Iresult).into(pdt_Image)
             }
         })
