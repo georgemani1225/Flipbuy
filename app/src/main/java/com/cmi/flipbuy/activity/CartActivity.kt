@@ -73,6 +73,7 @@ class CartActivity : AppCompatActivity() {
                     mDatabase.child(model.id).removeValue()
                     tot = tot - model.price?.toInt()!!
                     txtTotal.setText("Sub Total: " + "₹" + tot)
+
                 }
             }
         }
