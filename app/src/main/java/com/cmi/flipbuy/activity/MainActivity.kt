@@ -21,7 +21,9 @@ import com.cmi.flipbuy.fragment.*
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import de.hdodenhof.circleimageview.CircleImageView
+import kotlinx.android.synthetic.main.activity_cart.*
 import kotlinx.android.synthetic.main.activity_drawer_header.*
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,13 +31,14 @@ class MainActivity : AppCompatActivity() {
     lateinit var imgProfileHeader: CircleImageView
     lateinit var coordinatorLayout: CoordinatorLayout
     lateinit var ToolBar: Toolbar
+
     lateinit var frameLayout: FrameLayout
     lateinit var navigationView: NavigationView
     lateinit var sharedPreferences: SharedPreferences
     lateinit var menuSignout: MenuItem
     lateinit var mDatabase: DatabaseReference
     var previousMenuItem: MenuItem? = null
-
+    lateinit var btnToolbarCart: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val posts: ArrayList<String> = ArrayList()
@@ -51,8 +54,18 @@ class MainActivity : AppCompatActivity() {
         ToolBar = findViewById(R.id.ToolBar)
         navigationView = findViewById(R.id.navigationView)
         frameLayout = findViewById(R.id.frameLayout)
+        btnToolbarCart = findViewById(R.id.btnToolbarCart)
         imgProfileHeader = navigationView.getHeaderView(0).findViewById(R.id.imgProfileHeader)
+        btnToolbarCart.setOnClickListener {
+            val intent = Intent(this, CartActivity::class.java)
+            startActivity(intent)
 
+
+
+
+
+
+        }
         imgProfileHeader.setOnClickListener {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.frameLayout, AccountFragment())
@@ -79,6 +92,7 @@ class MainActivity : AppCompatActivity() {
 
         openDashboard()
         setUpToolBar()
+
 
         val actionBarDrawerToggle = ActionBarDrawerToggle(
             this@MainActivity, drawerLayout,

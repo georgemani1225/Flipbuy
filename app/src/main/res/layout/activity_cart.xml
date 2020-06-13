@@ -28,7 +28,6 @@
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="50dp"
         android:layout_above="@+id/btnCheckout"
-        android:text="Sub Total:"
         android:layout_marginTop="20dp"
         android:textSize="18sp"
         android:textStyle="bold"
