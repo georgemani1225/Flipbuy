@@ -6,7 +6,7 @@ apply plugin: 'kotlin-kapt'
 repositories {
     mavenCentral()
 
-    flatDir{
+    flatDir {
         dirs 'app'
     }
 }

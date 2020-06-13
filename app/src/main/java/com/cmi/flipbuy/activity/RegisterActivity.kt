@@ -38,15 +38,12 @@ class RegisterActivity : AppCompatActivity() {
         val name = etName.text.toString()
         val email = etEmail.text.toString()
         val mobileno = etMobileno.text.toString()
-        val address = etAddress.text.toString()
         val rpassword = etRegisterPassword.text.toString()
         val cpassword = etConfirmPassword.text.toString()
-        if (email.isEmpty() || rpassword.isEmpty() || name.isEmpty() || mobileno.isEmpty() || address.isEmpty() || cpassword.isEmpty()) {
+        if (email.isEmpty() || rpassword.isEmpty() || name.isEmpty() || mobileno.isEmpty() || cpassword.isEmpty()) {
             Toast.makeText(this, "Please enter the credentials", Toast.LENGTH_LONG).show()
             return
-        }
-        else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches())
-        {
+        } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(this, "Invalid Email Address", Toast.LENGTH_LONG).show()
             return
         }
@@ -62,8 +59,6 @@ class RegisterActivity : AppCompatActivity() {
                     userHashMap["Name"] = name
                     userHashMap["Email"] = email
                     userHashMap["Mobile Number"] = mobileno
-                    userHashMap["Delivery Address"] = address
-                    userHashMap["Profile Pic"] = ""
                     mDatabase.updateChildren(userHashMap)
                 } else {
                     Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
@@ -74,7 +69,7 @@ class RegisterActivity : AppCompatActivity() {
                     val intent = Intent(this, LoginActivity::class.java)
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                     startActivity(intent)
-                    Toast.makeText(this, "Account Created Successfully",Toast.LENGTH_LONG).show()
+                    Toast.makeText(this, "Account Created Successfully", Toast.LENGTH_LONG).show()
                     finish()
                 } else {
                     Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()

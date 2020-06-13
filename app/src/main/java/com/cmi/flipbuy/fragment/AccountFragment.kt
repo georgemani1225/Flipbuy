@@ -25,6 +25,7 @@ import androidx.core.app.ActivityCompat
 import androidx.fragment.app.FragmentActivity
 
 import com.cmi.flipbuy.R
+import com.cmi.flipbuy.activity.AddressActivity
 import com.google.android.gms.common.api.ResultTransform
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
@@ -48,6 +49,7 @@ class AccountFragment : Fragment() {
     lateinit var txtPhoneNumber: TextView
     lateinit var txtDelAddress: TextView
     lateinit var imgProfileFrag: de.hdodenhof.circleimageview.CircleImageView
+    lateinit var txtEditAdd: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,8 +59,13 @@ class AccountFragment : Fragment() {
 
         UserNameProfile = view.findViewById(R.id.UserNameProfile)
         txtPhoneNumber = view.findViewById(R.id.txtPhoneNumber)
-        txtDelAddress = view.findViewById(R.id.txtDelAddress)
         imgProfileFrag = view.findViewById(R.id.imgProfileFrag)
+        txtEditAdd = view.findViewById(R.id.txtEditAdd)
+
+        txtEditAdd.setOnClickListener {
+            val intent = Intent(activity, AddressActivity::class.java)
+            startActivity(intent)
+        }
 
         mDatabase = FirebaseDatabase.getInstance().getReference("Users")
             .child(FirebaseAuth.getInstance().currentUser!!.uid)
@@ -70,10 +77,8 @@ class AccountFragment : Fragment() {
             override fun onDataChange(dataSnapshot: DataSnapshot) {
                 val nameResult = dataSnapshot.child("Name").getValue().toString()
                 val mobileResult = dataSnapshot.child("Mobile Number").getValue().toString()
-                val dResult = dataSnapshot.child("Delivery Address").getValue().toString()
                 UserNameProfile.text = nameResult
                 txtPhoneNumber.text = "+91" + " " + mobileResult
-                txtDelAddress.text = dResult
             }
         })
         return view

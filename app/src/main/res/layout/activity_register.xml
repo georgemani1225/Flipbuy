@@ -79,28 +79,10 @@
             android:textSize="18sp" />
 
         <EditText
-            android:id="@+id/etAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/etMobileno"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:textColorHint="@color/OurColor4"
-            android:background="@drawable/edit_text_style"
-            android:drawableStart="@drawable/ic_delivery_address"
-            android:drawablePadding="10dp"
-            android:hint="Delivery Address"
-            android:inputType="text"
-            android:padding="5dp"
-            android:textSize="18sp" />
-
-        <EditText
             android:id="@+id/etRegisterPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/etAddress"
+            android:layout_below="@+id/etMobileno"
             android:layout_marginLeft="20dp"
             android:layout_marginTop="1dp"
             android:layout_marginRight="20dp"

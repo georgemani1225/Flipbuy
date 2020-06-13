@@ -16,6 +16,7 @@
         android:roundIcon="@mipmap/ic_app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".activity.AddressActivity"></activity>
         <activity android:name=".activity.PaymentActivity" />
         <activity android:name=".activity.CartActivity" />
         <activity
@@ -23,12 +24,13 @@
             android:parentActivityName=".activity.MainActivity"
             android:theme="@style/ToolBarTheme" />
         <activity android:name=".activity.DrawerHeader" />
-        <activity android:name=".activity.AdminCategoryActivity"
-            android:parentActivityName=".activity.MainActivity"/>
+        <activity
+            android:name=".activity.AdminCategoryActivity"
+            android:parentActivityName=".activity.MainActivity" />
         <activity
             android:name=".activity.AdminAddProductActivity"
-            android:parentActivityName=".activity.MainActivity"
-            android:hardwareAccelerated="false" />
+            android:hardwareAccelerated="false"
+            android:parentActivityName=".activity.MainActivity" />
         <activity
             android:name="activity.RegisterActivity"
             android:parentActivityName="activity.LoginActivity"
@@ -55,7 +57,6 @@
         <meta-data
             android:name="com.razorpay.ApiKey"
             android:value="rzp_test_F3ouYO2QXK99TO" />
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
