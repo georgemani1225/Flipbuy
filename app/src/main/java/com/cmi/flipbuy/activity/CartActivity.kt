@@ -47,16 +47,14 @@ class CartActivity : AppCompatActivity() {
 
             override fun onDataChange(dataSnapshot: DataSnapshot) {
 
-                var add: Int = 0
+                var add = 0
                 for (ds in dataSnapshot.children) {
                     val p = ds.child("price").getValue().toString()
-                    var pValue: Int
-                    pValue = p.toInt()
+                    val pValue = p.toInt()
                     add += pValue
-                    txtTotal.text = "Sub Total: ₹" + add.toString()
-                    mDatabase.child("totalp").setValue(add.toString())
+                    txtTotal.text = "Sub Total: ₹ " + add.toString()
                 }
-                txtTotal.text = "Sub Total: ₹" + add.toString()
+                txtTotal.text = "Sub Total: ₹ " + add.toString()
             }
         })
 

@@ -22,6 +22,7 @@
                 android:layout_width="300dp"
                 android:layout_height="37dp"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="15dp"
                 android:background="@drawable/search_bar"
                 android:drawableStart="@drawable/ic_search_bar"
                 android:drawablePadding="20dp"
@@ -35,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/offers"
                 android:layout_marginLeft="10dp"
-                android:layout_marginBottom="-155dp"
+                android:layout_marginBottom="-130dp"
                 android:fontFamily="@font/poppins_medium"
                 android:text="Todays Deals"
                 android:textColor="#000000"
@@ -46,7 +47,7 @@
                 android:layout_width="328dp"
                 android:layout_height="171dp"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="165dp"
+                android:layout_marginTop="145dp"
                 android:background="@drawable/dashbord_offers">
 
             </View>
@@ -77,7 +78,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="Men"
+            android:text="Styles for Men"
+            android:layout_marginTop="20dp"
             android:textColor="#000000"
             android:textSize="18sp" />
 
@@ -399,7 +401,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/poppins_medium"
-            android:text="Women"
+            android:text="Styles for Women"
             android:textColor="#000000"
             android:textSize="18sp" />
 
