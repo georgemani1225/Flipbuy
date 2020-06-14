@@ -122,13 +122,6 @@ class MainActivity : AppCompatActivity() {
                     startActivity(intent)
                     drawerLayout.closeDrawers()
                 }
-                R.id.menu_my_wishList -> {
-                    supportFragmentManager.beginTransaction()
-                        .replace(R.id.frameLayout, WishListFragment()).commit()
-                    supportActionBar?.title = "Your WishList"
-                    drawerLayout.closeDrawers()
-                }
-
                 R.id.menu_my_account -> {
                     supportFragmentManager.beginTransaction()
                         .replace(R.id.frameLayout, AccountFragment())

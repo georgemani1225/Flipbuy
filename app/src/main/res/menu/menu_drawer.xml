@@ -6,15 +6,10 @@
             android:title="@string/dashboard"
             android:icon="@drawable/ic_dashboard"/>
 
-
         <item
             android:id="@+id/menu_my_cart"
             android:title="@string/my_cart"
             android:icon="@drawable/ic_cart"/>
-        <item
-            android:id="@+id/menu_my_wishList"
-            android:title="@string/my_wishlist"
-            android:icon="@drawable/ic_wishlist"/>
 
         <item
             android:id="@+id/menu_my_account"

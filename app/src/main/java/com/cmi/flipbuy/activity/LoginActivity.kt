@@ -45,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun forgotPassword() {
-        val emailfp = etLoginMailid.text.toString()
+        val emailfp = etLoginMailid.editText?.text.toString()
         if (emailfp.isEmpty()) {
             Toast.makeText(this, "Please enter mail id", Toast.LENGTH_SHORT).show()
         } else {
@@ -60,8 +60,8 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login() {
-        val email = etLoginMailid.text.toString()
-        val password = etLoginPassword.text.toString()
+        val email = etLoginMailid.editText?.text.toString()
+        val password = etLoginPassword.editText?.text.toString()
         if (email == "") {
             Toast.makeText(this, "Please enter mail id", Toast.LENGTH_SHORT).show()
         } else if (password == "") {

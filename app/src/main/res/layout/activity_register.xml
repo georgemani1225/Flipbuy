@@ -1,139 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/OurColor2"
+    android:background="#ffffff"
     tools:context="activity.RegisterActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/OurColor1"
-            android:theme="@style/ToolBarThemeRegister"
-            app:titleTextAppearance="@style/ToolBar.TitleText" />
+    <TextView
+        android:id="@+id/txtCA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Create Account"
+        android:textColor="@color/OurColor1"
+        android:textSize="30sp" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etName"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtCA"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <EditText
-            android:id="@+id/etName"
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/edit_text_style"
-            android:drawableStart="@drawable/ic_name"
-            android:drawablePadding="10dp"
+            android:fontFamily="sans-serif"
             android:hint="Name"
-            android:textColorHint="@color/OurColor4"
-            android:inputType="text"
-            android:padding="5dp"
-            android:textSize="18sp" />
+            android:padding="10dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/etEmail"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etEmail"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etName"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/etName"
-            android:layout_marginLeft="20dp"
-            android:textColorHint="@color/OurColor4"
-            android:layout_marginTop="1dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/edit_text_style"
-            android:drawableStart="@drawable/ic_email"
-            android:drawablePadding="10dp"
-            android:hint="Email Address"
+            android:fontFamily="sans-serif"
+            android:hint="Email"
             android:inputType="textEmailAddress"
-            android:padding="5dp"
-            android:textSize="18sp" />
+            android:padding="10dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/etMobileno"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etMobileno"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etEmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/etEmail"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:textColorHint="@color/OurColor4"
-            android:background="@drawable/edit_text_style"
-            android:drawableStart="@drawable/ic_mobile"
-            android:drawablePadding="10dp"
+            android:fontFamily="sans-serif"
             android:hint="Mobile Number"
             android:inputType="phone"
-            android:padding="5dp"
-            android:textSize="18sp" />
+            android:padding="10dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/etRegisterPassword"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etRegisterPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etMobileno"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/etMobileno"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:textColorHint="@color/OurColor4"
-            android:background="@drawable/edit_text_style"
-            android:drawableStart="@drawable/ic_password"
-            android:drawablePadding="10dp"
-            android:hint="Password (Min 6 characters)"
+            android:fontFamily="sans-serif"
+            android:hint="Password"
             android:inputType="textPassword"
-            android:padding="5dp"
-            android:textSize="18sp" />
+            android:padding="10dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/etConfirmPassword"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etConfirmPassword"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/etRegisterPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        app:boxCornerRadiusBottomEnd="20dp"
+        app:boxCornerRadiusBottomStart="20dp"
+        app:boxCornerRadiusTopEnd="20dp"
+        app:boxCornerRadiusTopStart="20dp"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/etRegisterPassword"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="1dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginBottom="15dp"
-            android:background="@drawable/edit_text_style"
-            android:drawableStart="@drawable/ic_password"
-            android:drawablePadding="10dp"
-            android:textColorHint="@color/OurColor4"
+            android:fontFamily="sans-serif"
             android:hint="Confirm Password"
             android:inputType="textPassword"
-            android:padding="5dp"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/btnRegister"
-            android:layout_width="120dp"
-            android:layout_height="42dp"
-            android:layout_below="@+id/etConfirmPassword"
-            android:layout_centerHorizontal="true"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/login_button"
-            android:elevation="10dp"
-            android:fontFamily="@font/poppins_medium"
-            android:text="Register"
-            android:textAllCaps="false"
-            android:textColor="#ffffff"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:padding="10dp" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 
-    </RelativeLayout>
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="120dp"
+        android:layout_height="42dp"
+        android:layout_below="@+id/etConfirmPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/cart_button"
+        android:elevation="10dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Register"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</RelativeLayout>
+
+

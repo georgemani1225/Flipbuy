@@ -24,8 +24,7 @@ class RegisterActivity : AppCompatActivity() {
         btnRegister.setOnClickListener {
             performRegister()
         }
-        toolbar.setTitle("Register Yourself")
-        setSupportActionBar(toolbar)
+
     }
 
     override fun onBackPressed() {
@@ -35,16 +34,22 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun performRegister() {
-        val name = etName.text.toString()
-        val email = etEmail.text.toString()
-        val mobileno = etMobileno.text.toString()
-        val rpassword = etRegisterPassword.text.toString()
-        val cpassword = etConfirmPassword.text.toString()
+        val name = etName.editText?.text.toString()
+        val email = etEmail.editText?.text.toString()
+        val mobileno = etMobileno.editText?.text.toString()
+        val rpassword = etRegisterPassword.editText?.text.toString()
+        val cpassword = etConfirmPassword.editText?.text.toString()
         if (email.isEmpty() || rpassword.isEmpty() || name.isEmpty() || mobileno.isEmpty() || cpassword.isEmpty()) {
             Toast.makeText(this, "Please enter the credentials", Toast.LENGTH_LONG).show()
             return
         } else if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             Toast.makeText(this, "Invalid Email Address", Toast.LENGTH_LONG).show()
+            return
+        } else if (rpassword != cpassword) {
+            Toast.makeText(this, "Passwords do not match", Toast.LENGTH_LONG).show()
+            return
+        } else if (rpassword.length < 6) {
+            Toast.makeText(this, "Password too short", Toast.LENGTH_LONG).show()
             return
         }
         FirebaseAuth.getInstance().createUserWithEmailAndPassword(email, rpassword)
