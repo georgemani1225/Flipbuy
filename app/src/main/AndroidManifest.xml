@@ -16,8 +16,10 @@
         android:roundIcon="@mipmap/ic_app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.AddressActivity"></activity>
-        <activity android:name=".activity.PaymentActivity" />
+        <activity
+            android:name=".activity.PaymentActivity"
+            android:parentActivityName=".activity.MainActivity" />
+        <activity android:name=".activity.AddressActivity" />
         <activity android:name=".activity.CartActivity" />
         <activity
             android:name=".activity.ProductDetailsActivity"

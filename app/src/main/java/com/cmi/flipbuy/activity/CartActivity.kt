@@ -25,6 +25,7 @@ class CartActivity : AppCompatActivity() {
     lateinit var mDatabase: DatabaseReference
     lateinit var btnCheckout: Button
     lateinit var txtTotal: TextView
+    lateinit var mDatabaseU: DatabaseReference
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,9 +59,28 @@ class CartActivity : AppCompatActivity() {
             }
         })
 
+        mDatabase = FirebaseDatabase.getInstance().reference.child("Users")
+            .child(FirebaseAuth.getInstance().currentUser?.uid.toString()).child("Cart")
+        mDatabase.addValueEventListener(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {
+
+            }
+
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+
+                var newadd = 0
+                for (dsnew in dataSnapshot.children) {
+                    val newp = dsnew.child("price").getValue().toString()
+                    val newpValue = newp.toInt()
+                    newadd += newpValue
+                }
+                mDatabaseU = FirebaseDatabase.getInstance().reference.child("Users")
+                    .child(FirebaseAuth.getInstance().currentUser?.uid.toString())
+                mDatabaseU.child("subtotal").setValue(newadd)
+            }
+        })
 
         logRecyclerView()
-
 
         btnCheckout.setOnClickListener {
             val intent = Intent(this, PaymentActivity::class.java)
